@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Nebacrypt is a React + Motoko Internet Computer (ICP) application for collecting and managing client project requests for a Norwegian consultancy (Nebadon Encryption AS). It provides a public landing page and a customer portal where guests can submit project requests, authenticated users (via Internet Identity) can manage their own submissions (including optional file uploads), and admins can review all submissions, update project status with comments, handle customer-service messaging, and add delivery links. The backend canister enforces role-based access control (guest/user/admin), stores project submissions, profiles, messages, and delivery metadata, and sends email notifications via an external integrations/email canister.",
+  "architectural_notes": [
+    "Monorepo split into `frontend/` (React SPA) and `backend/` (Motoko canister on ICP).",
+    "Frontend uses @tanstack/react-query for all canister calls (queries + mutations) with explicit invalidation/refetch patterns to keep client and admin views synchronized.",
+    "Authentication via Internet Identity (AuthClient + DelegationIdentity); frontend builds an anonymous actor when unauthenticated and an authenticated actor when logged in.",
+    "Role-based access control in Motoko (`access-control.mo`) with mixin (`MixinAuthorization.mo`); first caller providing a correct secret token becomes admin, others become users; anonymous callers are treated as guests.",
+    "Backend uses mixins for cross-cutting features: authorization mixin and blob-storage maintenance mixin included into the main actor.",
+    "Email sending is abstracted via `emailClient.mo` which calls an external `EmailService` actor (integrations canister) and attaches cycles per request; backend triggers emails for submissions, status changes, messages, and delivery links.",
+    "File uploads use ICP “ExternalBlob” (Caffeine/IC storage blob primitives) from the frontend and are stored as part of authenticated submissions; client can open direct download URLs.",
+    "UI is built with TailwindCSS (OKLCH design tokens), shadcn-style components, and a state-based page navigator (no react-router).",
+    "Refactor to a single shared React Query QueryClient/QueryClientProvider (avoid multiple instances) and consolidate repeated React Query mutation + cache invalidation patterns into reusable helpers/hooks."
+  ],
+  "known_issues": [
+    "`frontend/src/main.tsx` wraps the app in a `QueryClientProvider`, and `frontend/src/App.tsx` wraps again with a different `QueryClientProvider` (double providers / multiple QueryClient instances can cause inconsistent caching and refetch behavior).",
+    "Authorization initialization depends on `CAFFEINE_ADMIN_TOKEN` being set in the canister environment; authenticated actor creation calls `_initializeAccessControlWithSecret` and will trap if the env var is missing.",
+    "Blob storage cashier env var name appears misspelled: `CAFFFEINE_STORAGE_CASHIER_PRINCIPAL` (triple “F”), which can cause runtime traps if deploy config uses the expected spelling.",
+    "Blob-storage authorization state (`_caffeineStorageState`) is `transient` (not stable); authorized principals list must be refreshed after upgrades/restarts, and state is lost on upgrade.",
+    "`_caffeineStorageUpdateGatewayPrincipals` is callable by any principal (no access check), potentially allowing untrusted callers to trigger gateway principal updates (even if it only reads from cashier).",
+    "Email cycle cost is hard-coded (50B cycles) and `broadcastEmail` has a TODO noting it should be calculated based on recipient count/body size; may waste cycles or fail unexpectedly.",
+    "Guest submissions store `submittedBy = caller` (anonymous principal) but there is no guest-access flow to later retrieve them; non-admin users cannot access anonymous submissions after they authenticate as a different principal.",
+    "Backend state for submissions/profiles is in-memory vars/Maps without stable persistence shown; data will not survive canister upgrades unless additional stable storage is implemented."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Nebadon Encryption company logo for email signature, clean transparent background suitable for inline email embedding (nebadon-email-logo.dim_200x80.png)",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "Marketing landing page with services & contact sections",
+      "synonyms": [
+        "Home page",
+        "LandingPage"
+      ],
+      "description": "Responsive Norwegian landing page presenting Nebacrypt services (AI guidance, web app development, decentralized hosting), a 'Why choose' section, and contact details. Supports smooth scrolling to services/contact sections via in-app navigation state.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Internet Identity authentication (login/logout)",
+      "synonyms": [
+        "II auth",
+        "AuthClient login"
+      ],
+      "description": "Frontend `InternetIdentityProvider` manages AuthClient, loads persisted identity, and exposes login/logout with status flags. Users authenticate with Internet Identity (delegation TTL ~30 days) and can clear identity to logout.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Backend actor creation with authenticated/anonymous modes",
+      "synonyms": [
+        "useActor",
+        "Actor factory"
+      ],
+      "description": "Frontend creates an anonymous backend actor when unauthenticated and an identity-bound actor when authenticated. On authenticated actor creation, it calls `_initializeAccessControlWithSecret` using a secret token read from the URL hash/session.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Role-based access control (admin/user/guest) with first-admin bootstrap",
+      "synonyms": [
+        "AccessControl",
+        "Admin bootstrap"
+      ],
+      "description": "Motoko access control assigns roles per principal. Anonymous callers are guests; authenticated callers become users by default; the first authenticated caller providing the correct secret token becomes admin. Admins can assign roles and the frontend can query `isCallerAdmin`.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "User profile management (create/update/get)",
+      "synonyms": [
+        "Profile setup",
+        "UserProfile"
+      ],
+      "description": "Authenticated users can create and update a stored profile (name/email/company). The app fetches the caller profile via React Query and shows a modal to create a profile if none exists; profile data is cached aggressively (infinite stale/gc).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Public (guest) project submission form",
+      "synonyms": [
+        "PublicSubmissionForm",
+        "submitProject"
+      ],
+      "description": "Unauthenticated visitors can submit a project request (client/company/email/description/timeline/budget) without login. Backend stores the submission as status `new` and sends email notifications to admin and a confirmation to the client.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Authenticated project submission with file uploads",
+      "synonyms": [
+        "submitAuthenticatedProject",
+        "ExternalBlob upload"
+      ],
+      "description": "Authenticated users can submit projects with optional file attachments. Frontend uploads files as `ExternalBlob` objects with upload progress callbacks; backend stores blobs with the submission and maintains a per-user projects index.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Client portal dashboard for managing own projects",
+      "synonyms": [
+        "ClientPortal",
+        "My projects"
+      ],
+      "description": "Authenticated customer portal with tabs and mobile bottom navigation. Users can list their submissions, view project details (status, admin comment, timeline/budget), view attached files, and open delivery links when provided.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Admin dashboard for managing all submissions",
+      "synonyms": [
+        "AdminDashboard",
+        "Submission management"
+      ],
+      "description": "Admin-only UI listing all project submissions with status badges, summary counts by status, detail view dialogs, and the ability to change status (reviewed/followup/inProgress/completed) with an optional comment that is stored and emailed to the client.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "Project messaging system with customer-service views",
+      "synonyms": [
+        "sendMessage",
+        "Kundeservice"
+      ],
+      "description": "Per-project message threads stored in each submission. Both project owners and admins can send messages; backend sends email notifications to the other party. Admin dashboard includes a cross-project customer-service inbox (filterable by project); client portal shows messages across all user projects.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-11",
+      "title": "Delivery link management for completed projects",
+      "synonyms": [
+        "addDeliveryLink",
+        "Delivery metadata"
+      ],
+      "description": "Admin can attach a delivery link + description to a project (typically when completed). Client portal displays the delivery section and lets clients open the link; backend emails the delivery details to the client.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "Email integration via external service canister",
+      "synonyms": [
+        "emailClient",
+        "integrations canister"
+      ],
+      "description": "Backend email client supports raw email, broadcast emails (service/verification/marketing), and calendar event emails by calling an external `EmailService` actor whose canister ID is provided via env var. Each send attaches cycles and returns ok/err results.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "Blob storage maintenance endpoints (gateway auth, pruning, cashier refill)",
+      "synonyms": [
+        "MixinStorage",
+        "Caffeine storage ops"
+      ],
+      "description": "Backend includes storage maintenance APIs to refresh authorized gateway principals, list dead blobs for deletion, confirm pruning and trigger GC, check if a blob is live, and refill a cashier canister with cycles (cashier-only).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-duplicate-react-query-setup-so-the-app-uses-exactly-one-queryclient-instance-and-one-queryclientprovider-keep-queryclientprovider-only-in-frontend-src-main-tsx-remove-the-queryclientprovider-and-associated-queryclient-creation-from-frontend-src-app-tsx-preserve-the-current-queryclient-default-options-that-are-currently-defined-in-frontend-src-app-tsx-by-moving-merging-them-into-the-single-queryclient-created-in-frontend-src-main-tsx",
+      "title": "Remove the duplicate React Query setup so the app uses exactly one QueryClient instance and one QueryClientProvider.\n\n- Keep QueryClientProvider only in `frontend/src/main.tsx`.\n- Remove the QueryClientProvider (and associated QueryClient creation) from `frontend/src/App.tsx`.\n- Preserve the current QueryClient default options that are currently defined in `frontend/src/App.tsx` by moving/merging them into the single QueryClient created in `frontend/src/main.tsx`.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refactor-duplicated-project-status-mutation-hooks-in-frontend-src-hooks-usequeries-ts-into-a-single-reusable-hook-replace-the-near-identical-hooks-usemarkasreviewed-usemarkasfollowup-usemarkasinprogress-usemarkascompleted-with-one-generic-hook-e-g-usemarkprojectstatus-status-while-keeping-the-same-external-behavior-update-all-callers-e-g-admin-ui-to-use-the-new-generic-hook-s-so-there-is-no-duplicated-mutation-boilerplate",
+      "title": "Refactor duplicated project-status mutation hooks in `frontend/src/hooks/useQueries.ts` into a single reusable hook.\n\n- Replace the near-identical hooks `useMarkAsReviewed`, `useMarkAsFollowup`, `useMarkAsInProgress`, `useMarkAsCompleted` with one generic hook (e.g., `useMarkProjectStatus(status)`), while keeping the same external behavior.\n- Update all callers (e.g., admin UI) to use the new generic hook(s) so there is no duplicated mutation boilerplate.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deduplicate-the-repeated-react-query-cache-refresh-pattern-invalidate-refetch-used-after-mutations-introduce-a-small-shared-helper-within-frontend-src-hooks-usequeries-ts-or-a-new-frontend-util-that-performs-the-common-invalidate-refetch-sequence-for-the-relevant-query-keys-apply-the-helper-to-all-hooks-that-currently-repeat-the-same-pattern-at-minimum-status-change-mutations-usesendmessage-and-anywhere-else-in-usequeries-ts-using-the-same-invalidate-refetch-block-keep-the-observable-behavior-the-same-same-query-keys-invalidated-refetched-and-still-forcing-refresh-where-the-ui-relies-on-it",
+      "title": "Deduplicate the repeated React Query cache refresh pattern (invalidate + refetch) used after mutations.\n\n- Introduce a small shared helper (within `frontend/src/hooks/useQueries.ts` or a new frontend util) that performs the common invalidate/refetch sequence for the relevant query keys.\n- Apply the helper to all hooks that currently repeat the same pattern (at minimum: status-change mutations, `useSendMessage`, and anywhere else in `useQueries.ts` using the same invalidate/refetch block).\n- Keep the observable behavior the same (same query keys invalidated/refetched, and still forcing refresh where the UI relies on it).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-consolidate-duplicated-scroll-to-section-effects-in-frontend-src-pages-landingpage-tsx-replace-the-two-separate-useeffect-blocks-for-scrolltoservices-and-scrolltocontact-with-one-effect-or-a-shared-function-that-handles-both-cases-ensure-the-scrolling-behavior-remains-smooth-and-reliable-and-does-not-trigger-unnecessary-timeouts",
+      "title": "Consolidate duplicated scroll-to-section effects in `frontend/src/pages/LandingPage.tsx`.\n\n- Replace the two separate `useEffect` blocks for `scrollToServices` and `scrollToContact` with one effect (or a shared function) that handles both cases.\n- Ensure the scrolling behavior remains smooth and reliable and does not trigger unnecessary timeouts.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Codebase cleanup/optimization: remove duplicates (incl. double QueryClientProvider), refactor repeated React Query mutation hooks and invalidate/refetch patterns, and consolidate duplicated LandingPage scroll effects",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add configurable admin action options to the backend for flexible project workflow management. Include methods to retrieve available actions per project status and validate state transitions.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement professional email formatting for all outgoing notifications. Structure emails with clear sections for project details, sender information, and action items using HTML templates.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add email notifications to admins when new projects are submitted or when new comments are added to existing projects. Include project details and direct links to the admin dashboard.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Enhance project status update backend logic to support admin workflow tracking. Ensure status changes trigger appropriate side effects (notifications, logging) and maintain an audit trail of status history.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create professional HTML email templates for all outgoing customer notifications. Structure emails with clear sections: greeting, content formatted in list form for clarity, and a signature section (only for customer emails) that visually displays the Nebadon Encryption logo and a clickable link to nencrypt.com. Ensure templates are responsive and include plain-text fallback versions.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Update the backend email sending logic to use the new HTML templates when sending notifications to customers (project status updates, project confirmations). Use simple plain-text formatting for admin notifications (new projects, new comments) without logo or signature.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Nebacrypt",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,78 @@
+{
+  "kind": "build_request",
+  "title": "Implement professional HTML email templates with customer signature",
+  "projectName": "Nebacrypt",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Create professional HTML email templates for all outgoing customer notifications. Structure emails with clear sections: greeting, content formatted in list form for clarity, and a signature section (only for customer emails) that visually displays the Nebadon Encryption logo and a clickable link to nencrypt.com. Ensure templates are responsive and include plain-text fallback versions.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2",
+          "msg-3",
+          "msg-4",
+          "msg-5",
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "enkel og oversiktlig epoststruktur",
+          "Dette er innholdet i mailen. Informasjon formateres tydelig. For eksempel i listeform.",
+          "og signatur til slutt",
+          "Alle mailer kan forsåvidt bruke det, med mindre det er korte bekreftelser til admin som ikke behøver logo",
+          "nei kun eposter til kunder trenger signatur",
+          "husk at signaturen ikke nevner nettside, firmanavn eller logo. kun fremviser det"
+        ]
+      },
+      "acceptanceCriteria": [
+        "HTML email templates follow a consistent structure: greeting, content in list format, and signature (customer emails only)",
+        "Customer email signature displays the Nebadon Encryption logo as an inline image",
+        "Customer email signature includes a clickable link to nencrypt.com without explanatory text",
+        "Admin notification emails do not include logo or signature",
+        "Templates are responsive and render correctly on mobile and desktop email clients",
+        "Plain-text fallback versions are provided for all templates"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Update the backend email sending logic to use the new HTML templates when sending notifications to customers (project status updates, project confirmations). Use simple plain-text formatting for admin notifications (new projects, new comments) without logo or signature.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "nei kun eposter til kunder trenger signatur",
+          "Kunder: Får fullformaterte e-poster med signatur (statusoppdateringer, prosjektbekreftelser, etc.)",
+          "Admin: Får enkle varsler uten signatur (nye prosjekter, kommentarer, etc.)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer-facing emails (status updates, confirmations) use the HTML template with logo signature",
+        "Admin notification emails (new project alerts, new comment alerts) use simple plain-text format without logo",
+        "All email sending logic integrates with the emailClient.sendRawEmail() method",
+        "Email content is dynamically populated with project details and formatted as lists where appropriate"
+      ]
+    }
+  ],
+  "constraints": [
+    "Respect single-actor architecture; keep all Motoko logic in backend/main.mo",
+    "Email sending must use the existing emailClient integration (external service canister)",
+    "Do not modify frontend code or routing for this email formatting work"
+  ],
+  "nonGoals": [
+    "Email notifications to admin for new projects or comments (covered in separate future requirements)",
+    "Project status update side effects and audit logging (covered in separate future requirements)",
+    "Configurable admin action options and workflow validation (covered in separate future requirements)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Nebadon Encryption company logo for email signature, clean transparent background suitable for inline email embedding (nebadon-email-logo.dim_200x80.png)"
+    ],
+    "edits": []
+  }
+}

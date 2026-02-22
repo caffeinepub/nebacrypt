@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Nordic color palette - cool whites, blue-grays, silver tones */
+        --background: 0.98 0.005 240;
+        --foreground: 0.20 0.015 240;
+        
+        --card: 0.99 0.003 240;
+        --card-foreground: 0.20 0.015 240;
+        
+        --popover: 0.99 0.003 240;
+        --popover-foreground: 0.20 0.015 240;
+        
+        /* Primary: Cool blue-gray */
+        --primary: 0.55 0.08 240;
+        --primary-foreground: 0.99 0.003 240;
+        
+        /* Secondary: Silver tone */
+        --secondary: 0.92 0.008 240;
+        --secondary-foreground: 0.25 0.015 240;
+        
+        /* Muted: Light blue-gray */
+        --muted: 0.95 0.006 240;
+        --muted-foreground: 0.50 0.02 240;
+        
+        /* Accent: Slightly warmer blue */
+        --accent: 0.65 0.10 220;
+        --accent-foreground: 0.99 0.003 240;
+        
+        --destructive: 0.55 0.20 15;
+        --destructive-foreground: 0.99 0.003 240;
+        
+        --border: 0.90 0.008 240;
+        --input: 0.90 0.008 240;
+        --ring: 0.55 0.08 240;
+        
+        --chart-1: 0.60 0.15 240;
+        --chart-2: 0.65 0.12 220;
+        --chart-3: 0.55 0.10 260;
+        --chart-4: 0.70 0.08 200;
+        --chart-5: 0.50 0.12 280;
+    }
+
+    .dark {
+        --background: 0.15 0.015 240;
+        --foreground: 0.95 0.005 240;
+        
+        --card: 0.18 0.015 240;
+        --card-foreground: 0.95 0.005 240;
+        
+        --popover: 0.20 0.015 240;
+        --popover-foreground: 0.95 0.005 240;
+        
+        /* Primary: Lighter cool blue for dark mode */
+        --primary: 0.70 0.10 240;
+        --primary-foreground: 0.15 0.015 240;
+        
+        /* Secondary: Dark silver */
+        --secondary: 0.25 0.015 240;
+        --secondary-foreground: 0.95 0.005 240;
+        
+        /* Muted: Dark blue-gray */
+        --muted: 0.22 0.015 240;
+        --muted-foreground: 0.65 0.02 240;
+        
+        /* Accent: Bright blue for dark mode */
+        --accent: 0.75 0.12 220;
+        --accent-foreground: 0.15 0.015 240;
+        
+        --destructive: 0.60 0.22 15;
+        --destructive-foreground: 0.95 0.005 240;
+        
+        --border: 0.25 0.015 240;
+        --input: 0.25 0.015 240;
+        --ring: 0.70 0.10 240;
+        
+        --chart-1: 0.65 0.18 240;
+        --chart-2: 0.70 0.15 220;
+        --chart-3: 0.60 0.12 260;
+        --chart-4: 0.75 0.10 200;
+        --chart-5: 0.55 0.15 280;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    
+    /* Custom gradient for radial glow effect */
+    .bg-gradient-radial {
+        background-image: radial-gradient(circle, var(--tw-gradient-stops));
+    }
+}
