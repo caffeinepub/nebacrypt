@@ -1,0 +1,27 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-img-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-1-div-2-div-1-div-1-img-1-the-nebacrypt-logo-banner-image-in-the-footer-component-so-that-its-container-and-the-image-itself-are-wide-enough-to-display-the-full-image-without-any-cropping-ensure-the-image-uses-appropriate-width-e-g-w-full-or-a-sufficiently-large-fixed-max-width-and-that-overflow-is-not-hidden-on-its-parent-container",
+      "featureTitle": "Update the img element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/img[1] (the Nebacrypt logo banner image in the Footer component) so that its container and the image itself are wide enough to display the full image without any cropping. Ensure the image uses appropriate width (e.g., w-full or a sufficiently large fixed/max width) and that overflow is not hidden on its parent container.",
+      "files": [
+        "frontend/src/components/Footer.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "email@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0",
+        "email-raw@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

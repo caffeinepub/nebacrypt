@@ -1,0 +1,37 @@
+{
+  "kind": "build_request",
+  "title": "Fix footer/loading image width to prevent cropping",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the img element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/img[1] (the Nebacrypt logo banner image in the Footer component) so that its container and the image itself are wide enough to display the full image without any cropping. Ensure the image uses appropriate width (e.g., w-full or a sufficiently large fixed/max width) and that overflow is not hidden on its parent container.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "just make sure the size is wide enough to not crop the image"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Nebacrypt logo banner image in the footer renders fully without any cropping on all sides.",
+        "The image container does not clip or hide overflow.",
+        "The image scales responsively and remains uncropped on common screen widths."
+      ]
+    }
+  ],
+  "constraints": [
+    "Only modify the footer logo image element and its immediate container — do not alter other footer layout or styling."
+  ],
+  "nonGoals": [
+    "Changing the image asset itself.",
+    "Modifying the LoadingScreen component.",
+    "Altering any other section of the page layout."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
