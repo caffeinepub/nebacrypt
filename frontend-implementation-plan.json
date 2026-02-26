@@ -1,21 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix footer/loading image width to prevent cropping",
+  "title": "Move social/contact icons element above address in footer",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update the Footer component's Nebacrypt logo banner image container and element to display the full image without cropping, ensuring appropriate width (w-full or sufficiently large fixed/max width) and no hidden overflow on the parent container.",
+      "summary": "Reorder footer elements to move the social/contact icons block above the address/contact details block within the same footer column",
       "acceptanceCriteria": [
-        "The Nebacrypt logo banner image in the footer renders fully without any cropping on all sides.",
-        "The image container does not clip or hide overflow.",
-        "The image scales responsively and remains uncropped on common screen widths."
+        "The selected element is rendered above the address block in the footer column.",
+        "All other footer content and layout remain unchanged.",
+        "The footer is visually consistent across desktop and mobile viewports."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Modify the img element and its parent container in the Footer component to ensure the Nebacrypt logo banner image displays fully without cropping. Remove any overflow-hidden classes from parent containers. Apply w-full or a sufficiently large max-width to the image element. Ensure the container allows the image to render at its full dimensions without clipping."
+          "description": "Reorder the JSX structure within the Footer component so that the element currently at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group) appears before the address/contact details block. This is a JSX reordering only—no content changes, no styling changes, and no new elements added or removed."
         }
       ]
     }

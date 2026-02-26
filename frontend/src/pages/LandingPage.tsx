@@ -15,7 +15,6 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
   const servicesRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
 
-  // Unified scroll effect for both services and contact sections
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | undefined;
 
@@ -79,38 +78,43 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/assets/generated/liquid-glass-bg-quarter-height.dim_1920x270.png')] bg-cover bg-center opacity-20" />
+      <section
+        className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
+        style={{
+          backgroundImage: "url('/assets/generated/image (1).jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/55" />
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
             <div className="flex justify-center mb-6 sm:mb-8">
-              <img 
-                src="/assets/generated/nebacrypt-hero-logo-transparent.dim_300x300.png" 
-                alt="Nebacrypt Logo" 
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain drop-shadow-2xl"
+              <img
+                src="/assets/nebadon encryption logo 1 cut (1)-1.png"
+                alt="Nebadon Encryption Logo"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain drop-shadow-2xl"
+                style={{ filter: 'invert(1) brightness(2)' }}
               />
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Nebacrypt AI & Utviklingstjenester
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-              Iterativ AI-veiledning, web app-utvikling og desentralisert hosting på Internet Computer. 
-              Vi leverer skreddersydde løsninger for bedrifter og privatpersoner.
+            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed px-4">
+              Spesialist i veiledning av kunstig intelligens. Tilbyr instrukser og skreddersydde løsninger for privat og profesjonell bruk. Produserer nettsider og apper bygget med toppmoderne serverteknologi.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 onClick={() => onNavigate('portal')}
                 className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 Kom i gang
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 onClick={() => onNavigate('services')}
-                className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full shadow-md hover:shadow-lg transition-all"
+                className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full shadow-md hover:shadow-lg transition-all bg-white/10 border-white/40 text-white hover:bg-white/20 hover:text-white"
               >
                 Se tjenester
               </Button>
@@ -135,8 +139,8 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-border/50">
                 <CardHeader className="space-y-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
-                    <img 
-                      src={service.icon} 
+                    <img
+                      src={service.icon}
                       alt={service.alt}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                     />
@@ -167,13 +171,13 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {whyChooseItems.map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="flex flex-col items-center text-center space-y-4 p-6 sm:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-md">
-                  <img 
-                    src={item.icon} 
+                  <img
+                    src={item.icon}
                     alt={item.alt}
                     className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                   />
@@ -211,8 +215,8 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">E-post</h3>
-                      <a 
-                        href="mailto:ceo@nebacrypt.com" 
+                      <a
+                        href="mailto:ceo@nebacrypt.com"
                         className="text-sm sm:text-base text-primary hover:underline break-all"
                       >
                         ceo@nebacrypt.com
@@ -225,8 +229,8 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">Telefon</h3>
-                      <a 
-                        href="tel:+4748442420" 
+                      <a
+                        href="tel:+4748442420"
                         className="text-sm sm:text-base text-primary hover:underline"
                       >
                         +47 48 442 420
@@ -248,8 +252,8 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                   </div>
                 </div>
                 <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     onClick={() => onNavigate('portal')}
                     className="w-full text-base sm:text-lg py-5 sm:py-6 rounded-full shadow-md hover:shadow-lg transition-all"
                   >

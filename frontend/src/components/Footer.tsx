@@ -6,29 +6,19 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-muted/30 backdrop-blur">
       <div className="container py-6 sm:py-8 px-4 sm:px-6">
-        {/* Banner Image - Mobile Responsive */}
+        {/* Banner Image - Reduced size */}
         <div className="mb-6 sm:mb-8 flex justify-center">
-          <div className="w-full">
-            <img 
-              src="/assets/nebadon encryption logo 1 cut.png" 
-              alt="Nebacrypt" 
+          <div className="w-full max-w-xs sm:max-w-sm">
+            <img
+              src="/assets/nebadon encryption logo 1 cut.png"
+              alt="Nebacrypt"
               className="w-full h-auto object-contain"
             />
           </div>
         </div>
 
-        {/* Contact Info - Mobile Optimized */}
-        <div className="text-center space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-          <div className="text-sm sm:text-base font-semibold">Nebadon Encryption AS</div>
-          <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
-            <div>Karl Johans gate 25</div>
-            <div>0159 OSLO</div>
-            <div>Org nr 935 095 123</div>
-          </div>
-        </div>
-
-        {/* Bottom Bar - Mobile Stacked */}
-        <div className="pt-4 sm:pt-6 border-t border-border/40">
+        {/* Bottom Bar - Mobile Stacked (moved above address) */}
+        <div className="pb-4 sm:pb-6 border-b border-border/40 mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
             <div className="text-center sm:text-left">
               © {currentYear} Nebadon Encryption – Alle rettigheter forbeholdes
@@ -46,6 +36,16 @@ export default function Footer() {
                 caffeine.ai
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Contact Info - Mobile Optimized */}
+        <div className="text-center space-y-2 sm:space-y-3">
+          <div className="text-sm sm:text-base font-semibold">Nebadon Encryption AS</div>
+          <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
+            <div>Karl Johans gate 25</div>
+            <div>0159 OSLO</div>
+            <div>Org nr 935 095 123</div>
           </div>
         </div>
       </div>

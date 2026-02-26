@@ -1,10 +1,9 @@
 # Specification
 
 ## Summary
-**Goal:** Fix the Nebacrypt logo banner image in the Footer component so it displays fully without any cropping.
+**Goal:** Reorder elements in the footer column so that the social/contact icons element appears above the address/contact details block.
 
 **Planned changes:**
-- Update the footer logo image element and its immediate container to use sufficient width (e.g., `w-full` or a large enough fixed/max width) so the image is not cropped
-- Ensure the parent container does not have `overflow-hidden` or any style that clips the image
+- In the Footer component, move the social/contact icons element (currently the third div in the second footer column group) to render above the address block in that same column.
 
-**User-visible outcome:** The Nebacrypt logo banner in the footer renders fully and without cropping on all common screen widths.
+**User-visible outcome:** The social/contact icons are displayed above the address in the footer column, with all other footer content and layout remaining unchanged.

@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-26T18:55:20.251Z",
+  "generatedAt": "2026-02-26T19:47:07.873Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,7 +12,7 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the img element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/img[1] (the Nebacrypt logo banner image in the Footer component) so that its container and the image itself are wide enough to display the full image without any cropping. Ensure the image uses appropriate width (e.g., w-full or a sufficiently large fixed/max width) and that overflow is not hidden on its parent container.",
+        "summary": "In the Footer component, move the element currently located at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group of the footer's inner container) so that it appears above the address/contact details block in that same footer column.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/Footer.tsx"

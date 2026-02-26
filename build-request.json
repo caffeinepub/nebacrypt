@@ -1,34 +1,35 @@
 {
   "kind": "build_request",
-  "title": "Fix footer/loading image width to prevent cropping",
+  "title": "Move social/contact icons element above address in footer",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the img element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/img[1] (the Nebacrypt logo banner image in the Footer component) so that its container and the image itself are wide enough to display the full image without any cropping. Ensure the image uses appropriate width (e.g., w-full or a sufficiently large fixed/max width) and that overflow is not hidden on its parent container.",
+      "text": "In the Footer component, move the element currently located at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group of the footer's inner container) so that it appears above the address/contact details block in that same footer column.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "just make sure the size is wide enough to not crop the image"
+          "flytt denne til over adressen i footeren"
         ]
       },
       "acceptanceCriteria": [
-        "The Nebacrypt logo banner image in the footer renders fully without any cropping on all sides.",
-        "The image container does not clip or hide overflow.",
-        "The image scales responsively and remains uncropped on common screen widths."
+        "The selected element is rendered above the address block in the footer column.",
+        "All other footer content and layout remain unchanged.",
+        "The footer is visually consistent across desktop and mobile viewports."
       ]
     }
   ],
   "constraints": [
-    "Only modify the footer logo image element and its immediate container — do not alter other footer layout or styling."
+    "Only reorder elements within the existing footer column — do not add, remove, or restyle any content.",
+    "Do not modify any immutable frontend paths."
   ],
   "nonGoals": [
-    "Changing the image asset itself.",
-    "Modifying the LoadingScreen component.",
-    "Altering any other section of the page layout."
+    "Changing the address or contact details content.",
+    "Redesigning the footer layout or styling.",
+    "Any backend changes."
   ],
   "imageRequirements": {
     "required": [],

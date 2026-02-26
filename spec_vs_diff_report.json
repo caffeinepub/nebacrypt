@@ -1,11 +1,11 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-26T18:55:20.248Z",
-  "summary": "The diff modifies the Footer component to give the Nebacrypt logo banner image a full-width container with w-full on both the container div and the img element, using h-auto object-contain to prevent cropping. This directly addresses REQ-1. No overflow-hidden is applied to the parent container. The changes align well with all acceptance criteria.",
+  "generatedAt": "2026-02-26T19:47:07.870Z",
+  "summary": "The diff reorders elements in the Footer component so that the copyright/attribution bar appears above the contact address block. This aligns with REQ-1's intent to move the third div (identified by XPath) above the address block. The implementation appears correct in spirit, though the original footer structure may have differed from what is now shown. No content was added or removed, and styling appears unchanged.",
   "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.95,
+  "confidence": 0.85,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/components/Footer.tsx",

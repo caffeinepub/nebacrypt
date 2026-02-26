@@ -85,19 +85,12 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
-        <button 
-          onClick={() => handleNavigation('home')} 
-          className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
+        <button
+          onClick={() => handleNavigation('home')}
+          className="flex items-center hover:opacity-80 transition-opacity"
           aria-label="Gå til forsiden"
         >
-          <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex items-center justify-center flex-shrink-0">
-            <img 
-              src="/assets/generated/nebacrypt-header-logo-placeholder.dim_300x300.png" 
-              alt="Nebacrypt Logo" 
-              className="max-h-full max-w-full"
-              style={{ objectFit: 'contain' }}
-            />
-          </div>
+          <span className="text-sm font-semibold text-foreground">Nebacrypt</span>
         </button>
 
         <nav className="hidden md:flex items-center gap-4 lg:gap-6">
@@ -161,10 +154,10 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               </button>
             ))}
             <div className="space-y-3 pt-2">
-              <Button 
-                onClick={handleAuth} 
-                disabled={disabled} 
-                variant={isAuthenticated ? 'outline' : 'default'} 
+              <Button
+                onClick={handleAuth}
+                disabled={disabled}
+                variant={isAuthenticated ? 'outline' : 'default'}
                 className="w-full touch-manipulation"
                 size="lg"
               >
