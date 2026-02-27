@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
 
 interface HeaderProps {
   currentPage: Page;
@@ -65,21 +65,21 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
   // Determine active state for navigation items
   const getActiveState = (page: Page) => {
     if (page === 'services' || page === 'contact') {
-      // Services and Contact are active when on home page
       return currentPage === 'home' || currentPage === page;
     }
     return currentPage === page;
   };
 
-  const navItems = [
-    { label: 'Hjem', page: 'home' as Page },
-    { label: 'Tjenester', page: 'services' as Page },
-    { label: 'Kontakt', page: 'contact' as Page },
-    { label: 'Kundeportal', page: 'portal' as Page },
+  const navItems: { label: string; page: Page }[] = [
+    { label: 'Hjem', page: 'home' },
+    { label: 'Tjenester', page: 'services' },
+    { label: 'Musikk', page: 'music' },
+    { label: 'Kontakt', page: 'contact' },
+    { label: 'Kundeportal', page: 'portal' },
   ];
 
   if (isAuthenticated && isAdmin === true) {
-    navItems.push({ label: 'Admin Dashboard', page: 'admin' as Page });
+    navItems.push({ label: 'Admin Dashboard', page: 'admin' });
   }
 
   return (
@@ -90,7 +90,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           className="flex items-center hover:opacity-80 transition-opacity"
           aria-label="Gå til forsiden"
         >
-          <span className="text-sm font-semibold text-foreground">Nebacrypt</span>
+          <span className="text-sm font-semibold text-foreground">@nebacrypt</span>
         </button>
 
         <nav className="hidden md:flex items-center gap-4 lg:gap-6">

@@ -7,11 +7,12 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ClientPortal from './pages/ClientPortal';
 import AdminDashboard from './pages/AdminDashboard';
+import MusicPage from './pages/MusicPage';
 import ProfileSetupModal from './components/ProfileSetupModal';
 import LoadingScreen from './components/LoadingScreen';
 import { useGetCallerUserProfile } from './hooks/useQueries';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -75,14 +76,15 @@ export default function App() {
         <Header currentPage={currentPage} onNavigate={handleNavigate} />
         <main className="flex-1">
           {currentPage === 'home' && (
-            <LandingPage 
-              onNavigate={handleNavigate} 
+            <LandingPage
+              onNavigate={handleNavigate}
               scrollToServices={scrollTarget === 'services'}
               scrollToContact={scrollTarget === 'contact'}
             />
           )}
           {currentPage === 'portal' && <ClientPortal />}
           {currentPage === 'admin' && <AdminDashboard />}
+          {currentPage === 'music' && <MusicPage onNavigate={handleNavigate} />}
         </main>
         <Footer />
         {showProfileSetup && <ProfileSetupModal />}

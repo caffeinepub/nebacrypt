@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Phone, Music, ExternalLink } from 'lucide-react';
+import MusicTrackCard from '../components/MusicTrackCard';
+import { tracks, SUNO_PROFILE_URL } from './MusicPage';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
 
 interface LandingPageProps {
   onNavigate: (page: Page) => void;
@@ -74,6 +76,8 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
       alt: 'Sikkerhetslås ikon',
     },
   ];
+
+  const featuredTracks = tracks.slice(0, 3);
 
   return (
     <div className="w-full">
@@ -154,6 +158,66 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Music Preview Section */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-10">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Music className="h-5 w-5 text-primary" />
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">Musikk</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  Synthetic Agondonters Collective
+                </h2>
+                <p className="text-sm sm:text-base text-muted-foreground mt-1">
+                  Elektronisk musikk fra @nebacrypt
+                </p>
+              </div>
+              <button
+                onClick={() => onNavigate('music')}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline flex-shrink-0"
+              >
+                Se all musikk
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              {featuredTracks.map((track, index) => (
+                <MusicTrackCard
+                  key={index}
+                  title={track.title}
+                  genreTag={track.genreTag}
+                  sunoUrl={SUNO_PROFILE_URL}
+                />
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
+              <Button
+                variant="outline"
+                onClick={() => onNavigate('music')}
+                className="w-full sm:w-auto rounded-full px-6"
+              >
+                Se all musikk
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <a
+                href={SUNO_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Åpne på Suno
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

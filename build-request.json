@@ -1,35 +1,85 @@
 {
   "kind": "build_request",
-  "title": "Move social/contact icons element above address in footer",
+  "title": "Add Music page and front page preview for Synthetic Agondonters Collective",
+  "projectName": "Nebacrypt",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the Footer component, move the element currently located at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group of the footer's inner container) so that it appears above the address/contact details block in that same footer column.",
+      "text": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-5",
+          "msg-6"
+        ],
+        "quotes": [
+          "track cards is perfect. no distinct look, just functional ui for mobile and desktop",
+          "it can be a standalone"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A `/music` route renders the Music page without errors",
+        "Track cards display title, a descriptive tag, and an outbound link to the Suno profile/track",
+        "Clicking a track card link opens https://suno.com/@nebacrypt in a new tab",
+        "Page layout is usable and well-structured on mobile (< 768px) and desktop (≥ 1024px)",
+        "Visual style (colors, fonts, spacing) is consistent with the rest of the site"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7",
+          "msg-8"
+        ],
+        "quotes": [
+          "just feature a preview with a link to the full page",
+          "on the front page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing page contains a clearly identifiable music preview section",
+        "Section displays 2–3 track cards using the same component/design as the full Music page",
+        "A 'See all music' link is visible and navigates to the `/music` route",
+        "Section is responsive on both mobile and desktop",
+        "Section integrates visually with the existing LandingPage layout"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "flytt denne til over adressen i footeren"
+          "it can be a standalone"
         ]
       },
       "acceptanceCriteria": [
-        "The selected element is rendered above the address block in the footer column.",
-        "All other footer content and layout remain unchanged.",
-        "The footer is visually consistent across desktop and mobile viewports."
+        "Navigating to `/music` loads the Music page",
+        "Desktop header contains a 'Music' nav link",
+        "Mobile hamburger menu contains a 'Music' nav link",
+        "Active state styling is applied to the Music nav link when on the `/music` route"
       ]
     }
   ],
   "constraints": [
-    "Only reorder elements within the existing footer column — do not add, remove, or restyle any content.",
-    "Do not modify any immutable frontend paths."
+    "Do not use any Suno embed iframes or external scripts — only outbound links to https://suno.com/@nebacrypt",
+    "All track data must be hardcoded on the frontend (no backend changes needed)",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui",
+    "Visual style must match the existing Nordic-themed design defined in index.css and tailwind.config.js"
   ],
   "nonGoals": [
-    "Changing the address or contact details content.",
-    "Redesigning the footer layout or styling.",
-    "Any backend changes."
+    "No audio playback functionality",
+    "No Suno API integration or dynamic fetching of tracks",
+    "No backend changes or new Motoko endpoints",
+    "No distinct visual theme separate from the existing site design"
   ],
   "imageRequirements": {
     "required": [],

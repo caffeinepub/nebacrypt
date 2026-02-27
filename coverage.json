@@ -1,24 +1,50 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-26T19:47:07.873Z",
+  "generatedAt": "2026-02-27T11:58:08.046Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In the Footer component, move the element currently located at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group of the footer's inner container) so that it appears above the address/contact details block in that same footer column.",
+        "summary": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/MusicTrackCard.tsx",
+          "frontend/src/pages/MusicPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/MusicTrackCard.tsx",
+          "frontend/src/pages/MusicPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LandingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LandingPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/Header.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/Header.tsx"
         ]
       }
     ]
@@ -28,7 +54,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/Footer.tsx",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/MusicTrackCard.tsx",
+    "frontend/src/pages/LandingPage.tsx",
+    "frontend/src/pages/MusicPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

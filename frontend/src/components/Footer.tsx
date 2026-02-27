@@ -41,11 +41,11 @@ export default function Footer() {
 
         {/* Contact Info - Mobile Optimized */}
         <div className="text-center space-y-2 sm:space-y-3">
+          <div className="text-xs sm:text-sm text-muted-foreground">Org nr 935 095 123</div>
           <div className="text-sm sm:text-base font-semibold">Nebadon Encryption AS</div>
           <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
             <div>Karl Johans gate 25</div>
             <div>0159 OSLO</div>
-            <div>Org nr 935 095 123</div>
           </div>
         </div>
       </div>

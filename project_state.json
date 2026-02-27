@@ -1,22 +1,54 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Website project featuring a Music page for the Synthetic Agondonters Collective (Suno/@nebacrypt) with track cards linking out to Suno, plus a front page preview teaser with a 'See all music' link.",
+  "architectural_notes": [
+    "Music page uses manually curated track cards (no embed API) linking out to https://suno.com/@nebacrypt"
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-in-the-footer-component-move-the-element-currently-located-at-xpath-html-1-body-1-div-1-div-1-footer-1-div-1-div-2-div-2-div-3-the-third-div-inside-the-second-column-group-of-the-footer-s-inner-container-so-that-it-appears-above-the-address-contact-details-block-in-that-same-footer-column",
-      "title": "In the Footer component, move the element currently located at XPath /html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[3] (the third div inside the second column group of the footer's inner container) so that it appears above the address/contact details block in that same footer column.",
+      "id": "feature-create-a-standalone-music-page-music-route-that-showcases-the-synthetic-agondonters-collective-the-page-should-display-a-curated-grid-of-track-cards-each-showing-a-track-title-a-short-description-or-genre-tag-and-a-link-that-opens-the-corresponding-suno-track-at-https-suno-com-nebacrypt-in-a-new-tab-the-layout-must-be-responsive-for-both-mobile-and-desktop-and-must-match-the-existing-site-s-nordic-themed-design-colors-typography-component-patterns-from-index-css-and-tailwind-config",
+      "title": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-compact-preview-section-for-the-synthetic-agondonters-collective-on-the-existing-landing-page-landingpage-tsx-this-section-should-display-2-3-highlighted-track-cards-same-card-design-as-the-full-music-page-and-include-a-prominent-see-all-music-call-to-action-link-that-navigates-to-the-music-page-the-section-should-be-placed-in-a-logical-position-on-the-landing-page-e-g-after-the-services-section-and-must-be-fully-responsive",
+      "title": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-register-the-new-music-page-in-the-application-router-app-tsx-so-that-navigating-to-music-renders-the-music-page-add-a-music-navigation-link-to-the-site-header-header-tsx-for-both-desktop-and-mobile-menus-pointing-to-the-music-route",
+      "title": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Move social/contact icons element above address in footer",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Standalone Music page showcasing the Synthetic Agondonters Collective with track cards linking to Suno (@nebacrypt), functional mobile/desktop UI matching existing site style",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Front page preview section with a few highlighted track cards for the Synthetic Agondonters Collective and a 'See all music' link to the full Music page",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Nebacrypt",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
