@@ -1,50 +1,37 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T11:58:08.046Z",
+  "generatedAt": "2026-02-27T15:51:28.538Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
+        "summary": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/MusicTrackCard.tsx",
-          "frontend/src/pages/MusicPage.tsx"
+          "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/MusicTrackCard.tsx",
-          "frontend/src/pages/MusicPage.tsx"
+          "frontend/src/components/Header.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+        "summary": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/PublicSubmissionForm.tsx",
+          "frontend/src/pages/ClientPortal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/components/Header.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/components/Header.tsx"
+          "frontend/src/components/PublicSubmissionForm.tsx"
         ]
       }
     ]
@@ -54,11 +41,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
     "frontend/src/components/Header.tsx",
-    "frontend/src/components/MusicTrackCard.tsx",
-    "frontend/src/pages/LandingPage.tsx",
-    "frontend/src/pages/MusicPage.tsx",
+    "frontend/src/components/PublicSubmissionForm.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

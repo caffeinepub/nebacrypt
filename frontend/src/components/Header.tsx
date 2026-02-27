@@ -64,7 +64,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
 
   // Determine active state for navigation items
   const getActiveState = (page: Page) => {
-    if (page === 'services' || page === 'contact') {
+    if (page === 'contact') {
       return currentPage === 'home' || currentPage === page;
     }
     return currentPage === page;
@@ -72,7 +72,6 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
 
   const navItems: { label: string; page: Page }[] = [
     { label: 'Hjem', page: 'home' },
-    { label: 'Tjenester', page: 'services' },
     { label: 'Musikk', page: 'music' },
     { label: 'Kontakt', page: 'contact' },
     { label: 'Kundeportal', page: 'portal' },

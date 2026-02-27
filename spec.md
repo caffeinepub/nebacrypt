@@ -1,12 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Add a Music page for the Synthetic Agondonters Collective and a landing page preview section, integrated into the existing Nebacrypt site navigation.
+**Goal:** Remove the "Tjenester" nav item and update Internet Identity descriptions to reflect II 2.0 capabilities.
 
 **Planned changes:**
-- Create a new `/music` route and `MusicPage.tsx` displaying a responsive grid of hardcoded track cards (title, genre/description tag, outbound link to https://suno.com/@nebacrypt), styled to match the existing Nordic-themed design
-- Add a compact music preview section to `LandingPage.tsx` showing 2–3 track cards and a "See all music" link to `/music`, placed after the services section
-- Register the `/music` route in `App.tsx`
-- Add a "Music" navigation link to `Header.tsx` for both desktop and mobile menus with active state styling
+- Remove "Tjenester" (Services) from both the desktop and mobile navigation menu in Header.tsx
+- Update Internet Identity description text across relevant pages (e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to mention passkeys, Google, Apple, and Microsoft sign-in support
 
-**User-visible outcome:** Users can discover the Synthetic Agondonters Collective via a preview on the landing page and navigate to a dedicated Music page listing all tracks, each linking out to the Suno profile in a new tab.
+**User-visible outcome:** The navigation no longer shows "Tjenester", and any Internet Identity descriptions in the UI accurately reflect II 2.0 features including passkeys and social sign-in options.

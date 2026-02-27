@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-standalone-music-page-music-route-that-showcases-the-synthetic-agondonters-collective-the-page-should-display-a-curated-grid-of-track-cards-each-showing-a-track-title-a-short-description-or-genre-tag-and-a-link-that-opens-the-corresponding-suno-track-at-https-suno-com-nebacrypt-in-a-new-tab-the-layout-must-be-responsive-for-both-mobile-and-desktop-and-must-match-the-existing-site-s-nordic-themed-design-colors-typography-component-patterns-from-index-css-and-tailwind-config",
-      "featureTitle": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
+      "featureId": "feature-remove-the-tjenester-services-item-from-the-navigation-menu-in-header-tsx-so-it-no-longer-appears-in-either-the-desktop-or-mobile-menu",
+      "featureTitle": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
       "files": [
-        "frontend/src/components/MusicTrackCard.tsx",
-        "frontend/src/pages/MusicPage.tsx"
+        "frontend/src/components/Header.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -25,10 +24,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-compact-preview-section-for-the-synthetic-agondonters-collective-on-the-existing-landing-page-landingpage-tsx-this-section-should-display-2-3-highlighted-track-cards-same-card-design-as-the-full-music-page-and-include-a-prominent-see-all-music-call-to-action-link-that-navigates-to-the-music-page-the-section-should-be-placed-in-a-logical-position-on-the-landing-page-e-g-after-the-services-section-and-must-be-fully-responsive",
-      "featureTitle": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+      "featureId": "feature-update-the-internet-identity-description-text-wherever-it-appears-in-the-app-e-g-landingpage-tsx-publicsubmissionform-tsx-clientportal-tsx-to-reflect-internet-identity-2-0-capabilities-support-for-passkeys-google-apple-and-microsoft-sign-in-replacing-any-outdated-description",
+      "featureTitle": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
       "files": [
-        "frontend/src/pages/LandingPage.tsx"
+        "frontend/src/components/PublicSubmissionForm.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -43,29 +42,6 @@
       ],
       "testIds": [
         "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-register-the-new-music-page-in-the-application-router-app-tsx-so-that-navigating-to-music-renders-the-music-page-add-a-music-navigation-link-to-the-site-header-header-tsx-for-both-desktop-and-mobile-menus-pointing-to-the-music-route",
-      "featureTitle": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Header.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "email@1.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "blob-storage@4.0.0",
-        "github-export-icp-cli@1.0.0",
-        "email-raw@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

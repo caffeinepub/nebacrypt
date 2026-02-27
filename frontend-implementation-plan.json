@@ -1,68 +1,47 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Music page and front page preview for Synthetic Agondonters Collective",
+  "title": "Remove 'Tjenester' from nav menu and update Internet Identity description for II 2.0",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Create a standalone Music page at /music route showcasing the Synthetic Agondonters Collective with a responsive grid of track cards linking to Suno profile",
+      "summary": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
       "acceptanceCriteria": [
-        "A `/music` route renders the Music page without errors",
-        "Track cards display title, a descriptive tag, and an outbound link to the Suno profile/track",
-        "Clicking a track card link opens https://suno.com/@nebacrypt in a new tab",
-        "Page layout is usable and well-structured on mobile (< 768px) and desktop (≥ 1024px)",
-        "Visual style (colors, fonts, spacing) is consistent with the rest of the site"
+        "The 'Tjenester' link is not visible in the desktop navigation bar",
+        "The 'Tjenester' link is not visible in the mobile navigation menu",
+        "All other existing nav items remain intact"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/MusicTrackCard.tsx",
-          "operation": "create",
-          "description": "Create a reusable MusicTrackCard component that displays a track's title, descriptive genre tag, and an external link icon. The card should open https://suno.com/@nebacrypt in a new tab when clicked. Style using Tailwind classes consistent with the Nordic theme from index.css (OKLCH color tokens, border-radius from tailwind.config.js). Make the entire card clickable with hover states. The component accepts props: title (string), genreTag (string), and sunoUrl (string)."
-        },
-        {
-          "path": "frontend/src/pages/MusicPage.tsx",
-          "operation": "create",
-          "description": "Create the MusicPage component that renders a full catalog of Synthetic Agondonters Collective tracks. Include a page header with title 'Synthetic Agondonters Collective' and a subtitle describing the music project. Display a responsive grid of MusicTrackCard components (1 column on mobile, 2-3 columns on tablet, 3-4 columns on desktop using Tailwind's grid-cols-* classes). Hardcode an array of 8-12 tracks with titles and genre tags (e.g., 'Ethereal Synth', 'Nordic Ambient', 'Electronic Dreams'). Each track card should link to https://suno.com/@nebacrypt. Use padding and spacing that matches LandingPage.tsx. Apply the Nordic color scheme from index.css."
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Remove the 'Tjenester' navigation item from both the desktop navigation bar and the mobile menu. Locate the nav items array or JSX structure that contains the 'Tjenester' link and remove it completely, ensuring all other nav items (home, portal, admin, music) remain unchanged and properly spaced."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add a compact music preview section on the Landing page displaying 2-3 highlighted tracks with a 'See all music' CTA linking to /music",
+      "summary": "Update the Internet Identity description text to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in.",
       "acceptanceCriteria": [
-        "Landing page contains a clearly identifiable music preview section",
-        "Section displays 2–3 track cards using the same component/design as the full Music page",
-        "A 'See all music' link is visible and navigates to the `/music` route",
-        "Section is responsive on both mobile and desktop",
-        "Section integrates visually with the existing LandingPage layout"
+        "Internet Identity description mentions passkeys as a login option",
+        "Internet Identity description mentions Google, Apple, and Microsoft sign-in support",
+        "No outdated or inaccurate description of Internet Identity remains visible in the UI"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/LandingPage.tsx",
           "operation": "modify",
-          "description": "Add a new music preview section after the existing services section (before the 'why choose us' section). The section should have a heading 'Featured Music' or 'Synthetic Agondonters Collective', display 2-3 MusicTrackCard components in a responsive grid (1 column mobile, 2-3 columns desktop), and include a prominent 'See all music' call-to-action link/button that navigates to '/music' using React Router's Link component. Use the same track data structure as MusicPage.tsx but show only the first 2-3 tracks. Match the section styling, padding, and layout patterns used in the existing LandingPage sections. Import MusicTrackCard from '../components/MusicTrackCard'."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Register the Music page route in App.tsx and add 'Music' navigation links to both desktop and mobile menus in Header.tsx",
-      "acceptanceCriteria": [
-        "Navigating to `/music` loads the Music page",
-        "Desktop header contains a 'Music' nav link",
-        "Mobile hamburger menu contains a 'Music' nav link",
-        "Active state styling is applied to the Music nav link when on the `/music` route"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Import the MusicPage component from './pages/MusicPage'. Add a new Route element for the '/music' path that renders <MusicPage />. Place the route in the Routes section alongside existing routes for the landing page, admin dashboard, and client portal. Ensure the route is registered before any catch-all routes."
+          "description": "Update the Internet Identity description text to reflect II 2.0 capabilities. Replace any existing description with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure the new description is clear, accurate, and user-friendly."
         },
         {
-          "path": "frontend/src/components/Header.tsx",
+          "path": "frontend/src/components/PublicSubmissionForm.tsx",
           "operation": "modify",
-          "description": "Add a 'Music' navigation link to both the desktop navigation menu and the mobile hamburger menu. For desktop: add a Link or button with text 'Music' that navigates to '/music', placed after existing nav items. For mobile: add a similar link in the mobile menu dropdown/overlay. Apply active state styling (using the same pattern as existing nav links) when the current route is '/music'. Use React Router's useLocation or NavLink to detect the active route. Ensure the link styling matches the existing navigation items (colors, hover states, typography from the Nordic theme)."
+          "description": "Update the Internet Identity description text in the login section to reflect II 2.0 capabilities. Replace any existing description with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure consistency with the description in LandingPage.tsx."
+        },
+        {
+          "path": "frontend/src/pages/ClientPortal.tsx",
+          "operation": "modify",
+          "description": "Update any Internet Identity description text to reflect II 2.0 capabilities. If Internet Identity is described or referenced in this file, replace it with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure consistency with descriptions in other files."
         }
       ]
     }

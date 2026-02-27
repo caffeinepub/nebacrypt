@@ -132,54 +132,62 @@ export default function PublicSubmissionForm({ onLogin, loginStatus }: PublicSub
             
             <div className="text-sm text-muted-foreground leading-relaxed space-y-2 px-1">
               <p>
-                Internet Identity er en sikker innloggingsmetode fra Internet Computer. 
-                Du autentiserer deg med din digitale identitet (kalt "anchor") i stedet for et passord. 
-                Dette gir deg full kontroll over din identitet uten å måtte stole på tredjeparter.
+                <strong className="text-foreground">Internet Identity 2.0</strong> er en moderne og sikker innloggingsløsning fra Internet Computer.
+                Du kan logge inn med <strong className="text-foreground">passkeys</strong> (fingeravtrykk, ansiktsgjenkjenning eller PIN),
+                eller bruke din eksisterende konto hos <strong className="text-foreground">Google, Apple eller Microsoft</strong> –
+                uten passord og uten at noen tredjepart lagrer din identitet.
               </p>
               <p className="text-xs">
-                Ved første gangs innlogging vil du opprette en ny anchor. Denne kan brukes på tvers av alle applikasjoner på Internet Computer.
+                Ved første gangs innlogging opprettes en kryptografisk identitet som er unik for deg.
+                Ingen persondata deles med oss eller andre parter.
               </p>
             </div>
           </CardContent>
         </Card>
 
+        {/* Public Submission Form */}
         <Card className="border-border/50 bg-card/50 backdrop-blur">
           <CardHeader>
-            <CardTitle>Prosjektinnsendingsskjema</CardTitle>
-            <CardDescription>Vennligst oppgi så mye detaljer som mulig om ditt prosjekt</CardDescription>
+            <div className="flex items-center gap-2">
+              <Mail className="h-5 w-5 text-primary" />
+              <CardTitle>Send inn prosjektforespørsel</CardTitle>
+            </div>
+            <CardDescription>
+              Du kan også sende inn en forespørsel uten å logge inn
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="clientName">Ditt navn *</Label>
+                  <Label htmlFor="clientName">Navn *</Label>
                   <Input
                     id="clientName"
+                    placeholder="Ditt navn"
                     value={formData.clientName}
                     onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                    placeholder="Ola Nordmann"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="companyName">Selskapsnavn</Label>
+                  <Label htmlFor="companyName">Firma</Label>
                   <Input
                     id="companyName"
+                    placeholder="Firmanavn (valgfritt)"
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                    placeholder="Ditt selskap"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">E-postadresse *</Label>
+                <Label htmlFor="email">E-post *</Label>
                 <Input
                   id="email"
                   type="email"
+                  placeholder="din@epost.no"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="ola@eksempel.no"
                   required
                 />
               </div>
@@ -188,36 +196,32 @@ export default function PublicSubmissionForm({ onLogin, loginStatus }: PublicSub
                 <Label htmlFor="projectDescription">Prosjektbeskrivelse *</Label>
                 <Textarea
                   id="projectDescription"
+                  placeholder="Beskriv prosjektet ditt..."
                   value={formData.projectDescription}
                   onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
-                  placeholder="Beskriv ditt prosjekt, mål og krav..."
-                  rows={6}
+                  rows={5}
                   required
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="timeline">Tidslinje</Label>
-                  <Select value={formData.timeline} onValueChange={(value) => setFormData({ ...formData, timeline: value })}>
-                    <SelectTrigger id="timeline">
-                      <SelectValue placeholder="Velg tidslinje" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="urgent">Haster (1-2 uker)</SelectItem>
-                      <SelectItem value="short">Kort sikt (1-2 måneder)</SelectItem>
-                      <SelectItem value="medium">Mellomlang sikt (3-6 måneder)</SelectItem>
-                      <SelectItem value="long">Lang sikt (6+ måneder)</SelectItem>
-                      <SelectItem value="flexible">Fleksibel</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="timeline">Tidsramme</Label>
+                  <Input
+                    id="timeline"
+                    placeholder="f.eks. 3 måneder"
+                    value={formData.timeline}
+                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                  />
                 </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="budget">Budsjettramme *</Label>
-                  <Select value={formData.budget} onValueChange={(value) => setFormData({ ...formData, budget: value as ProjectBudgetRange })}>
+                  <Label htmlFor="budget">Budsjett *</Label>
+                  <Select
+                    value={formData.budget}
+                    onValueChange={(value) => setFormData({ ...formData, budget: value as ProjectBudgetRange })}
+                  >
                     <SelectTrigger id="budget">
-                      <SelectValue placeholder="Velg budsjettramme" />
+                      <SelectValue placeholder="Velg budsjettområde" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value={ProjectBudgetRange.range1_10kNOK}>1 000 – 10 000 NOK</SelectItem>
@@ -229,13 +233,18 @@ export default function PublicSubmissionForm({ onLogin, loginStatus }: PublicSub
                 </div>
               </div>
 
-              <Button type="submit" className="w-full" size="lg" disabled={submitProject.isPending}>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={submitProject.isPending}
+              >
                 {submitProject.isPending ? (
                   'Sender inn...'
                 ) : (
                   <>
                     <Send className="mr-2 h-4 w-4" />
-                    Send inn prosjekt
+                    Send inn forespørsel
                   </>
                 )}
               </Button>

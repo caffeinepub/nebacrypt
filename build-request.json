@@ -1,85 +1,54 @@
 {
   "kind": "build_request",
-  "title": "Add Music page and front page preview for Synthetic Agondonters Collective",
+  "title": "Remove 'Tjenester' from nav menu and update Internet Identity description for II 2.0",
   "projectName": "Nebacrypt",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a standalone Music page (`/music` route) that showcases the Synthetic Agondonters Collective. The page should display a curated grid of track cards, each showing a track title, a short description or genre tag, and a link that opens the corresponding Suno track at https://suno.com/@nebacrypt in a new tab. The layout must be responsive for both mobile and desktop, and must match the existing site's Nordic-themed design (colors, typography, component patterns from index.css and Tailwind config).",
+      "text": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-5",
           "msg-6"
         ],
         "quotes": [
-          "track cards is perfect. no distinct look, just functional ui for mobile and desktop",
-          "it can be a standalone"
+          "fjern tjenester fra menyen"
         ]
       },
       "acceptanceCriteria": [
-        "A `/music` route renders the Music page without errors",
-        "Track cards display title, a descriptive tag, and an outbound link to the Suno profile/track",
-        "Clicking a track card link opens https://suno.com/@nebacrypt in a new tab",
-        "Page layout is usable and well-structured on mobile (< 768px) and desktop (≥ 1024px)",
-        "Visual style (colors, fonts, spacing) is consistent with the rest of the site"
+        "The 'Tjenester' link is not visible in the desktop navigation bar",
+        "The 'Tjenester' link is not visible in the mobile navigation menu",
+        "All other existing nav items remain intact"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add a compact preview section for the Synthetic Agondonters Collective on the existing Landing page (`LandingPage.tsx`). This section should display 2–3 highlighted track cards (same card design as the full Music page) and include a prominent 'See all music' call-to-action link that navigates to the `/music` page. The section should be placed in a logical position on the landing page (e.g., after the services section) and must be fully responsive.",
+      "text": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-7",
-          "msg-8"
+          "msg-6"
         ],
         "quotes": [
-          "just feature a preview with a link to the full page",
-          "on the front page"
+          "oppdater beskrivelsen av internet identity til å passe med ii 2.0"
         ]
       },
       "acceptanceCriteria": [
-        "Landing page contains a clearly identifiable music preview section",
-        "Section displays 2–3 track cards using the same component/design as the full Music page",
-        "A 'See all music' link is visible and navigates to the `/music` route",
-        "Section is responsive on both mobile and desktop",
-        "Section integrates visually with the existing LandingPage layout"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Register the new Music page in the application router (`App.tsx`) so that navigating to `/music` renders the Music page. Add a 'Music' navigation link to the site header (`Header.tsx`) for both desktop and mobile menus, pointing to the `/music` route.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "it can be a standalone"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Navigating to `/music` loads the Music page",
-        "Desktop header contains a 'Music' nav link",
-        "Mobile hamburger menu contains a 'Music' nav link",
-        "Active state styling is applied to the Music nav link when on the `/music` route"
+        "Internet Identity description mentions passkeys as a login option",
+        "Internet Identity description mentions Google, Apple, and Microsoft sign-in support",
+        "No outdated or inaccurate description of Internet Identity remains visible in the UI"
       ]
     }
   ],
   "constraints": [
-    "Do not use any Suno embed iframes or external scripts — only outbound links to https://suno.com/@nebacrypt",
-    "All track data must be hardcoded on the frontend (no backend changes needed)",
-    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui",
-    "Visual style must match the existing Nordic-themed design defined in index.css and tailwind.config.js"
+    "Do not modify any files under frontend/src/hooks/ (immutable paths)",
+    "Do not alter any other navigation items or page routes"
   ],
   "nonGoals": [
-    "No audio playback functionality",
-    "No Suno API integration or dynamic fetching of tracks",
-    "No backend changes or new Motoko endpoints",
-    "No distinct visual theme separate from the existing site design"
+    "Adding any new pages or sections",
+    "Changing the actual Internet Identity authentication implementation",
+    "Modifying backend logic"
   ],
   "imageRequirements": {
     "required": [],

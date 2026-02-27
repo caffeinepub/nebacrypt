@@ -15,6 +15,9 @@ export default {
             }
         },
         extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
             colors: {
                 border: 'oklch(var(--border))',
                 input: 'oklch(var(--input))',
