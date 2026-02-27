@@ -1,54 +1,35 @@
 {
   "kind": "build_request",
-  "title": "Remove 'Tjenester' from nav menu and update Internet Identity description for II 2.0",
-  "projectName": "Nebacrypt",
+  "title": "Darken text contrast color in landing page ICP teaser section",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
+      "text": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "fjern tjenester fra menyen"
+          "denne teksten trenger mørkere kontrastfarge."
         ]
       },
       "acceptanceCriteria": [
-        "The 'Tjenester' link is not visible in the desktop navigation bar",
-        "The 'Tjenester' link is not visible in the mobile navigation menu",
-        "All other existing nav items remain intact"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "oppdater beskrivelsen av internet identity til å passe med ii 2.0"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Internet Identity description mentions passkeys as a login option",
-        "Internet Identity description mentions Google, Apple, and Microsoft sign-in support",
-        "No outdated or inaccurate description of Internet Identity remains visible in the UI"
+        "The targeted paragraph text is visibly darker and clearly readable against its background.",
+        "The contrast ratio meets WCAG AA minimum (4.5:1) for normal text.",
+        "No other text elements on the page are unintentionally affected."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/ (immutable paths)",
-    "Do not alter any other navigation items or page routes"
+    "Only modify the specific paragraph element identified by the XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1]",
+    "Do not alter layout, spacing, or font size of the element."
   ],
   "nonGoals": [
-    "Adding any new pages or sections",
-    "Changing the actual Internet Identity authentication implementation",
-    "Modifying backend logic"
+    "Changing contrast of any other text elements on the page.",
+    "Redesigning the ICP teaser section layout.",
+    "Modifying backend logic."
   ],
   "imageRequirements": {
     "required": [],

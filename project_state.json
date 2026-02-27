@@ -1,44 +1,24 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "A Norwegian web project with a music page (songs shown only there, not on front page), navigation menu, and Internet Identity 2.0 integration. Currently removing 'Tjenester' from nav menu and updating Internet Identity description for II 2.0.",
+  "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Text contrast is insufficient; user requested darker contrast color for text"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-remove-the-tjenester-services-item-from-the-navigation-menu-in-header-tsx-so-it-no-longer-appears-in-either-the-desktop-or-mobile-menu",
-      "title": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
+      "id": "feature-in-landingpage-tsx-find-the-paragraph-element-located-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-1-div-3-div-1-p-1-the-first-p-inside-the-third-div-of-the-icp-teaser-section-and-apply-a-darker-text-color-so-it-meets-sufficient-contrast-against-its-background-use-a-dark-high-contrast-color-class-e-g-text-gray-900-in-light-mode-or-an-equivalent-dark-foreground-token-to-ensure-legibility",
+      "title": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-update-the-internet-identity-description-text-wherever-it-appears-in-the-app-e-g-landingpage-tsx-publicsubmissionform-tsx-clientportal-tsx-to-reflect-internet-identity-2-0-capabilities-support-for-passkeys-google-apple-and-microsoft-sign-in-replacing-any-outdated-description",
-      "title": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Fjern 'Tjenester' fra navigasjonsmenyen",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Oppdater beskrivelsen av Internet Identity til å passe med II 2.0 (passkeys, Google, Apple, Microsoft)",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
-  "gameProjectType": "none",
-  "projectName": "Nebacrypt",
+  "new_feature_requests": [],
+  "projectName": "Darken text contrast color in landing page ICP teaser section",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

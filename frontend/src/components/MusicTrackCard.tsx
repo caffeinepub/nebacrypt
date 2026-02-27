@@ -1,7 +1,6 @@
 import { ExternalLink, Music } from 'lucide-react';
 
 interface MusicTrackCardProps {
-  genreTag: string;
   sunoUrl: string;
   title?: string;
   artist?: string;
@@ -60,7 +59,7 @@ export function parseTitleFromSunoUrl(url: string): string {
   }
 }
 
-export default function MusicTrackCard({ genreTag, sunoUrl, title: titleProp, artist }: MusicTrackCardProps) {
+export default function MusicTrackCard({ sunoUrl, title: titleProp, artist }: MusicTrackCardProps) {
   const title = titleProp ?? parseTitleFromSunoUrl(sunoUrl);
 
   return (
@@ -77,17 +76,9 @@ export default function MusicTrackCard({ genreTag, sunoUrl, title: titleProp, ar
         <h3 className="text-sm sm:text-base font-medium text-foreground leading-snug mb-0.5 group-hover:text-accent transition-colors duration-200 truncate">
           {title}
         </h3>
-        <div className="flex items-center gap-2 flex-wrap">
-          {artist && (
-            <span className="text-xs text-muted-foreground/90 font-medium">{artist}</span>
-          )}
-          {artist && (
-            <span className="text-xs text-muted-foreground/40">·</span>
-          )}
-          <span className="inline-block text-xs text-muted-foreground/70">
-            {genreTag}
-          </span>
-        </div>
+        {artist && (
+          <span className="text-xs text-muted-foreground/90 font-medium">{artist}</span>
+        )}
       </div>
       <ExternalLink className="flex-shrink-0 h-4 w-4 text-muted-foreground/30 group-hover:text-accent/60 transition-colors duration-200" />
     </a>

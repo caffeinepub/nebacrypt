@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music' | 'icp-info';
 
 interface HeaderProps {
   currentPage: Page;
@@ -72,6 +72,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
 
   const navItems: { label: string; page: Page }[] = [
     { label: 'Hjem', page: 'home' },
+    { label: 'Internet Computer', page: 'icp-info' },
     { label: 'Musikk', page: 'music' },
     { label: 'Kontakt', page: 'contact' },
     { label: 'Kundeportal', page: 'portal' },

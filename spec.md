@@ -1,10 +1,9 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the "Tjenester" nav item and update Internet Identity descriptions to reflect II 2.0 capabilities.
+**Goal:** Improve text contrast in the ICP teaser section on the landing page for better readability.
 
 **Planned changes:**
-- Remove "Tjenester" (Services) from both the desktop and mobile navigation menu in Header.tsx
-- Update Internet Identity description text across relevant pages (e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to mention passkeys, Google, Apple, and Microsoft sign-in support
+- In `LandingPage.tsx`, apply a darker text color to the first paragraph inside the third div of the ICP teaser section (matching XPath `/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1]`) using a high-contrast color class (e.g., `text-gray-900`).
 
-**User-visible outcome:** The navigation no longer shows "Tjenester", and any Internet Identity descriptions in the UI accurately reflect II 2.0 features including passkeys and social sign-in options.
+**User-visible outcome:** The targeted paragraph in the ICP teaser section is visibly darker and clearly legible against its background, meeting WCAG AA contrast requirements.

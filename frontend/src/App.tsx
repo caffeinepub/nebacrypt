@@ -8,11 +8,12 @@ import LandingPage from './pages/LandingPage';
 import ClientPortal from './pages/ClientPortal';
 import AdminDashboard from './pages/AdminDashboard';
 import MusicPage from './pages/MusicPage';
+import ICPInfoPage from './pages/ICPInfoPage';
 import ProfileSetupModal from './components/ProfileSetupModal';
 import LoadingScreen from './components/LoadingScreen';
 import { useGetCallerUserProfile } from './hooks/useQueries';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music' | 'icp-info';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -85,6 +86,7 @@ export default function App() {
           {currentPage === 'portal' && <ClientPortal />}
           {currentPage === 'admin' && <AdminDashboard />}
           {currentPage === 'music' && <MusicPage onNavigate={handleNavigate} />}
+          {currentPage === 'icp-info' && <ICPInfoPage onNavigate={handleNavigate} />}
         </main>
         <Footer />
         {showProfileSetup && <ProfileSetupModal />}

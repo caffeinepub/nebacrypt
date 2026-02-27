@@ -1,47 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove 'Tjenester' from nav menu and update Internet Identity description for II 2.0",
+  "title": "Darken text contrast color in landing page ICP teaser section",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
+      "summary": "Apply a darker, high-contrast text color to the first paragraph in the ICP teaser section (third div of the section) to ensure legibility against its background",
       "acceptanceCriteria": [
-        "The 'Tjenester' link is not visible in the desktop navigation bar",
-        "The 'Tjenester' link is not visible in the mobile navigation menu",
-        "All other existing nav items remain intact"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Remove the 'Tjenester' navigation item from both the desktop navigation bar and the mobile menu. Locate the nav items array or JSX structure that contains the 'Tjenester' link and remove it completely, ensuring all other nav items (home, portal, admin, music) remain unchanged and properly spaced."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Update the Internet Identity description text to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in.",
-      "acceptanceCriteria": [
-        "Internet Identity description mentions passkeys as a login option",
-        "Internet Identity description mentions Google, Apple, and Microsoft sign-in support",
-        "No outdated or inaccurate description of Internet Identity remains visible in the UI"
+        "The targeted paragraph text is visibly darker and clearly readable against its background.",
+        "The contrast ratio meets WCAG AA minimum (4.5:1) for normal text.",
+        "No other text elements on the page are unintentionally affected."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/LandingPage.tsx",
           "operation": "modify",
-          "description": "Update the Internet Identity description text to reflect II 2.0 capabilities. Replace any existing description with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure the new description is clear, accurate, and user-friendly."
-        },
-        {
-          "path": "frontend/src/components/PublicSubmissionForm.tsx",
-          "operation": "modify",
-          "description": "Update the Internet Identity description text in the login section to reflect II 2.0 capabilities. Replace any existing description with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure consistency with the description in LandingPage.tsx."
-        },
-        {
-          "path": "frontend/src/pages/ClientPortal.tsx",
-          "operation": "modify",
-          "description": "Update any Internet Identity description text to reflect II 2.0 capabilities. If Internet Identity is described or referenced in this file, replace it with text that explains Internet Identity 2.0 supports passkeys, Google sign-in, Apple sign-in, and Microsoft sign-in as authentication methods. Ensure consistency with descriptions in other files."
+          "description": "Locate the paragraph element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] within the ICP teaser section and replace its text color class with a darker, high-contrast variant such as 'text-gray-900' (or 'text-gray-950' if available in the theme) to ensure the text meets WCAG AA contrast requirements. Do not modify layout, spacing, or font size. Only the text color class of this specific paragraph should be changed."
         }
       ]
     }

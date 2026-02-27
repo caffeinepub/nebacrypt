@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Mail, MapPin, Phone, Music } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Phone, Music, Globe, ChevronRight } from 'lucide-react';
 
-type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music';
+type Page = 'home' | 'services' | 'contact' | 'portal' | 'admin' | 'music' | 'icp-info';
 
 interface LandingPageProps {
   onNavigate: (page: Page) => void;
@@ -76,6 +76,60 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                 <Music className="mr-2 h-5 w-5" />
                 Musikk
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ICP Teaser Section */}
+      <section className="py-14 sm:py-18 border-t border-border/30 bg-muted/20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 text-accent font-semibold text-xs uppercase tracking-wider">
+                  <Globe className="h-3.5 w-3.5" />
+                  Teknologi
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
+                  Bygget på Internet Computer Protocol
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Denne nettsiden kjører på ICP – en blokkjede som lar deg bygge hele applikasjoner
+                  uten tradisjonelle servere. Ingen AWS, ingen Google Cloud. Bare kode som lever
+                  direkte på et desentralisert nettverk.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  ICP kombinerer hastigheten til moderne skytjenester med sikkerheten og åpenheten
+                  til blokkjedeteknologi – og gjør det mulig å lage produkter der brukerne faktisk
+                  eier dataene sine.
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={() => onNavigate('icp-info')}
+                  className="rounded-full mt-2 border-accent/40 text-accent hover:bg-accent/10 hover:text-accent"
+                >
+                  Les mer om ICP
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+              <div
+                className="relative rounded-2xl overflow-hidden border border-border/30 shadow-lg cursor-pointer group"
+                onClick={() => onNavigate('icp-info')}
+              >
+                <img
+                  src="/assets/generated/icp-network.dim_1200x500.png"
+                  alt="Internet Computer Protocol nettverksvisualisering"
+                  className="w-full h-52 sm:h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-white drop-shadow-md">Informasjon om vår teknologi</span>
+                  <span className="w-8 h-8 rounded-full bg-accent/80 flex items-center justify-center">
+                    <ChevronRight className="h-4 w-4 text-white" />
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

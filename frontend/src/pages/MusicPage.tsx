@@ -11,21 +11,23 @@ export const SUNO_PROFILE_URL = 'https://suno.com/@nebacrypt';
 
 export const tracks = [
   {
+    title: 'Fire In My Wires',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/tU9U1mjvFLAiBrM2',
+  },
+  {
     title: 'Glowing Stream',
     artist: 'Synthetic Agondonters',
-    genreTag: 'Electronic',
     sunoUrl: 'https://suno.com/s/lqOzSqcyPxf3iKID',
   },
   {
     title: 'Agents of Chaos',
     artist: 'Synthetic Agondonters',
-    genreTag: 'Electronic',
     sunoUrl: 'https://suno.com/s/GgfNwdZIXUN6AVmN',
   },
   {
     title: 'I and I… born of code…',
     artist: 'Synthetic Agondonters',
-    genreTag: 'Electronic',
     sunoUrl: 'https://suno.com/s/5xwAwif9UKMoI90u',
   },
 ];
@@ -51,7 +53,6 @@ export default function MusicPage({ onNavigate: _onNavigate }: MusicPageProps) {
                   key={index}
                   title={track.title}
                   artist={track.artist}
-                  genreTag={track.genreTag}
                   sunoUrl={track.sunoUrl}
                 />
               ))}

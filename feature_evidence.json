@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-tjenester-services-item-from-the-navigation-menu-in-header-tsx-so-it-no-longer-appears-in-either-the-desktop-or-mobile-menu",
-      "featureTitle": "Remove the 'Tjenester' (Services) item from the navigation menu in Header.tsx so it no longer appears in either the desktop or mobile menu.",
+      "featureId": "feature-in-landingpage-tsx-find-the-paragraph-element-located-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-1-div-3-div-1-p-1-the-first-p-inside-the-third-div-of-the-icp-teaser-section-and-apply-a-darker-text-color-so-it-meets-sufficient-contrast-against-its-background-use-a-dark-high-contrast-color-class-e-g-text-gray-900-in-light-mode-or-an-equivalent-dark-foreground-token-to-ensure-legibility",
+      "featureTitle": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
       "files": [
-        "frontend/src/components/Header.tsx"
+        "frontend/src/pages/LandingPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -20,28 +20,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-internet-identity-description-text-wherever-it-appears-in-the-app-e-g-landingpage-tsx-publicsubmissionform-tsx-clientportal-tsx-to-reflect-internet-identity-2-0-capabilities-support-for-passkeys-google-apple-and-microsoft-sign-in-replacing-any-outdated-description",
-      "featureTitle": "Update the Internet Identity description text (wherever it appears in the app, e.g. LandingPage.tsx, PublicSubmissionForm.tsx, ClientPortal.tsx) to reflect Internet Identity 2.0 capabilities: support for passkeys, Google, Apple, and Microsoft sign-in, replacing any outdated description.",
-      "files": [
-        "frontend/src/components/PublicSubmissionForm.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "email@1.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "blob-storage@4.0.0",
-        "github-export-icp-cli@1.0.0",
-        "email-raw@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }
