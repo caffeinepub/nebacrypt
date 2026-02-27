@@ -1,21 +1,49 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Darken text contrast color in landing page ICP teaser section",
+  "title": "Fix ICPInfoPage: heading text and top section readability",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Apply a darker, high-contrast text color to the first paragraph in the ICP teaser section (third div of the section) to ensure legibility against its background",
+      "summary": "Change the heading from 'teknologiinformasjon' to 'Vår teknologi' in the ICPInfoPage top section",
       "acceptanceCriteria": [
-        "The targeted paragraph text is visibly darker and clearly readable against its background.",
-        "The contrast ratio meets WCAG AA minimum (4.5:1) for normal text.",
-        "No other text elements on the page are unintentionally affected."
+        "The heading in the top section of ICPInfoPage reads 'Vår teknologi' and not 'teknologiinformasjon'."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/LandingPage.tsx",
+          "path": "frontend/src/pages/ICPInfoPage.tsx",
           "operation": "modify",
-          "description": "Locate the paragraph element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] within the ICP teaser section and replace its text color class with a darker, high-contrast variant such as 'text-gray-900' (or 'text-gray-950' if available in the theme) to ensure the text meets WCAG AA contrast requirements. Do not modify layout, spacing, or font size. Only the text color class of this specific paragraph should be changed."
+          "description": "Locate the heading element in the top/hero section that currently displays 'teknologiinformasjon' and change its text content to 'Vår teknologi'. Ensure the heading maintains its existing styling and structure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Change all text in the ICPInfoPage top section to black for improved readability",
+      "acceptanceCriteria": [
+        "All text (headings and body paragraphs) in the top section of ICPInfoPage is rendered in black.",
+        "Text is legible against the background."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ICPInfoPage.tsx",
+          "operation": "modify",
+          "description": "Apply black text color (text-black or equivalent) to all text elements (headings, paragraphs, and any other text content) within the top/hero section. Update the className or style props to ensure all text is rendered in black, overriding any existing color classes that may be causing poor contrast."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Increase the CSS blur effect on the ICPInfoPage top section background image",
+      "acceptanceCriteria": [
+        "The background image in the top section of ICPInfoPage has a noticeably stronger blur effect than before.",
+        "The increased blur makes the overlaid text easier to read."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ICPInfoPage.tsx",
+          "operation": "modify",
+          "description": "Locate the background image styling in the top/hero section and increase the blur filter value. If using a backdrop-blur utility class, change it to a higher value (e.g., from backdrop-blur-sm to backdrop-blur-lg or backdrop-blur-xl). If using inline styles or custom CSS with filter: blur(), increase the pixel value (e.g., from blur(4px) to blur(12px) or higher) to create a more pronounced blur effect that improves text readability."
         }
       ]
     }

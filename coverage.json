@@ -1,24 +1,46 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T22:28:59.355Z",
+  "generatedAt": "2026-02-27T22:51:47.459Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
+        "summary": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
+          "frontend/src/pages/ICPInfoPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
+          "frontend/src/pages/ICPInfoPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ICPInfoPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ICPInfoPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ICPInfoPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ICPInfoPage.tsx"
         ]
       }
     ]
@@ -28,7 +50,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/LandingPage.tsx",
+    "frontend/src/pages/ICPInfoPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

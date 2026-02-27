@@ -11,6 +11,11 @@ export const SUNO_PROFILE_URL = 'https://suno.com/@nebacrypt';
 
 export const tracks = [
   {
+    title: 'Binær Hjerte',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/toWsTQiSpnQ9GN6Q',
+  },
+  {
     title: 'Fire In My Wires',
     artist: 'Synthetic Agondonters',
     sunoUrl: 'https://suno.com/s/tU9U1mjvFLAiBrM2',

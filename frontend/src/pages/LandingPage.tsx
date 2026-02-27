@@ -124,7 +124,7 @@ export default function LandingPage({ onNavigate, scrollToServices, scrollToCont
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-white drop-shadow-md">Informasjon om vår teknologi</span>
+                  <span className="text-sm font-semibold text-black drop-shadow-md">Vår teknologi</span>
                   <span className="w-8 h-8 rounded-full bg-accent/80 flex items-center justify-center">
                     <ChevronRight className="h-4 w-4 text-white" />
                   </span>

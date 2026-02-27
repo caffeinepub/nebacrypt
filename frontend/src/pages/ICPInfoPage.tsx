@@ -131,25 +131,29 @@ export default function ICPInfoPage({ onNavigate }: ICPInfoPageProps) {
 
       {/* Hero / Introduction Section */}
       <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
+        {/* Background image with strong blur */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0"
           style={{
             backgroundImage: "url('/assets/generated/icp-network.dim_1200x500.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            filter: 'blur(18px)',
+            transform: 'scale(1.05)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        {/* Light overlay to ensure black text is readable */}
+        <div className="absolute inset-0 bg-white/70" />
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge variant="outline" className="text-accent border-accent/40 px-4 py-1 text-sm">
-              Teknologiinformasjon
+            <Badge variant="outline" className="text-accent border-accent/60 px-4 py-1 text-sm bg-white/80">
+              Vår teknologi
             </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
               Internet Computer Protocol
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg sm:text-xl text-black/80 leading-relaxed">
               Hva om internett ikke trengte servere? ICP er en blokkjede som lar deg bygge og kjøre
               hele applikasjoner – frontend, backend og database – direkte på et desentralisert nettverk.
               Ingen skytjenester. Ingen mellommenn. Bare kode som lever på kjeden.
@@ -158,7 +162,7 @@ export default function ICPInfoPage({ onNavigate }: ICPInfoPageProps) {
               {['Desentralisert', 'Skalerbar', 'Åpen kildekode', 'Web3-nativ'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium"
+                  className="px-3 py-1 rounded-full bg-accent/20 text-black text-sm font-medium border border-accent/30"
                 >
                   {tag}
                 </span>
@@ -396,7 +400,7 @@ export default function ICPInfoPage({ onNavigate }: ICPInfoPageProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent/80 underline underline-offset-4 transition-colors"
                 >
                   {link.label}
                   <ChevronRight className="h-3 w-3" />

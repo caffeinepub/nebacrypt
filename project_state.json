@@ -1,24 +1,41 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Project involves a Norwegian-language website with a page about Internet Computer (blockchain/web3 technology). Working on text corrections and readability improvements.",
   "architectural_notes": [],
   "known_issues": [
-    "Text contrast is insufficient; user requested darker contrast color for text"
+    "Internet Computer page: top section has readability issues (unreadable text, insufficient background blur)"
   ],
   "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-in-landingpage-tsx-find-the-paragraph-element-located-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-1-div-3-div-1-p-1-the-first-p-inside-the-third-div-of-the-icp-teaser-section-and-apply-a-darker-text-color-so-it-meets-sufficient-contrast-against-its-background-use-a-dark-high-contrast-color-class-e-g-text-gray-900-in-light-mode-or-an-equivalent-dark-foreground-token-to-ensure-legibility",
-      "title": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
+      "id": "feature-on-the-icpinfopage-frontend-src-pages-icpinfopage-tsx-change-the-heading-that-currently-reads-teknologiinformasjon-to-v-r-teknologi",
+      "title": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-icpinfopage-change-all-text-in-the-top-hero-section-to-black-so-it-is-clearly-readable-against-the-background",
+      "title": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-icpinfopage-increase-the-css-blur-amount-on-the-background-image-in-the-top-hero-section-to-improve-readability",
+      "title": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
+      "reqIds": [
+        "REQ-3"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [],
-  "projectName": "Darken text contrast color in landing page ICP teaser section",
+  "gameProjectType": "none",
+  "projectName": "Nebacrypt",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

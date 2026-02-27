@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-landingpage-tsx-find-the-paragraph-element-located-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-1-div-3-div-1-p-1-the-first-p-inside-the-third-div-of-the-icp-teaser-section-and-apply-a-darker-text-color-so-it-meets-sufficient-contrast-against-its-background-use-a-dark-high-contrast-color-class-e-g-text-gray-900-in-light-mode-or-an-equivalent-dark-foreground-token-to-ensure-legibility",
-      "featureTitle": "In LandingPage.tsx, find the paragraph element located at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[1]/div[3]/div[1]/p[1] (the first <p> inside the third div of the ICP teaser section) and apply a darker text color so it meets sufficient contrast against its background. Use a dark, high-contrast color class (e.g., text-gray-900 in light mode, or an equivalent dark foreground token) to ensure legibility.",
+      "featureId": "feature-on-the-icpinfopage-frontend-src-pages-icpinfopage-tsx-change-the-heading-that-currently-reads-teknologiinformasjon-to-v-r-teknologi",
+      "featureTitle": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
       "files": [
-        "frontend/src/pages/LandingPage.tsx"
+        "frontend/src/pages/ICPInfoPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -20,6 +20,50 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-on-the-icpinfopage-change-all-text-in-the-top-hero-section-to-black-so-it-is-clearly-readable-against-the-background",
+      "featureTitle": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+      "files": [
+        "frontend/src/pages/ICPInfoPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "email@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0",
+        "email-raw@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-on-the-icpinfopage-increase-the-css-blur-amount-on-the-background-image-in-the-top-hero-section-to-improve-readability",
+      "featureTitle": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
+      "files": [
+        "frontend/src/pages/ICPInfoPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "email@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0",
+        "email-raw@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }
