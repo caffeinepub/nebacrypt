@@ -1,46 +1,35 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T22:51:47.459Z",
+  "generatedAt": "2026-02-27T23:07:40.725Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
+        "summary": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
+          "frontend/src/components/Footer.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
+          "frontend/src/components/Footer.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+        "summary": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
+          "frontend/src/components/Footer.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ICPInfoPage.tsx"
+          "frontend/src/components/Footer.tsx"
         ]
       }
     ]
@@ -50,7 +39,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/ICPInfoPage.tsx",
+    "frontend/src/components/Footer.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

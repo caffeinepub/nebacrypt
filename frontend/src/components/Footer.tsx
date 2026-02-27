@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="pb-4 sm:pb-6 border-b border-border/40 mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
             <div className="text-center sm:text-left">
-              © {currentYear} Nebadon Encryption – Alle rettigheter forbeholdes
+              © {currentYear} – Alle rettigheter forbeholdes
             </div>
             <div className="flex items-center gap-2">
               <span>Bygget med</span>
@@ -42,7 +42,6 @@ export default function Footer() {
         {/* Contact Info - Mobile Optimized */}
         <div className="text-center space-y-2 sm:space-y-3">
           <div className="text-xs sm:text-sm text-muted-foreground">Org nr 935 095 123</div>
-          <div className="text-sm sm:text-base font-semibold">Nebadon Encryption AS</div>
           <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
             <div>Karl Johans gate 25</div>
             <div>0159 OSLO</div>

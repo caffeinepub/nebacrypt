@@ -1,68 +1,50 @@
 {
   "kind": "build_request",
-  "title": "Fix ICPInfoPage: heading text and top section readability",
-  "projectName": "Nebacrypt",
+  "title": "Remove company name from footer copyright and company label",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
+      "text": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-7"
         ],
         "quotes": [
-          "på siden om Internet Computer så er det en overskrift hvor det står 'teknologiinformasjon'. Dette er ikke korrekt norsk og skal byttes ut med 'Vår teknologi'"
+          "fjern 'Nebadon Encryption AS'"
         ]
       },
       "acceptanceCriteria": [
-        "The heading in the top section of ICPInfoPage reads 'Vår teknologi' and not 'teknologiinformasjon'."
+        "The text 'Nebadon Encryption AS' no longer appears anywhere in the footer",
+        "The rest of the footer layout (logo, copyright bar, contact details, address) remains intact"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+      "text": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-7"
         ],
         "quotes": [
-          "hele dette øverste feltet uleselig, så om du kan forbedre lesbarheten med svart tekst på avsnittet"
+          "der det står copyright 2026 så kan du også fjerne 'Nebadon Encryption'"
         ]
       },
       "acceptanceCriteria": [
-        "All text (headings and body paragraphs) in the top section of ICPInfoPage is rendered in black.",
-        "Text is legible against the background."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "blurre bakgrunnsbildet mer"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The background image in the top section of ICPInfoPage has a noticeably stronger blur effect than before.",
-        "The increased blur makes the overlaid text easier to read."
+        "The copyright line no longer contains the text 'Nebadon Encryption'",
+        "The year '2026' and any caffeine.ai attribution remain on the copyright line",
+        "No other footer content is changed"
       ]
     }
   ],
   "constraints": [
-    "Only modify ICPInfoPage.tsx; do not change other pages or shared components unless strictly required.",
-    "Do not alter immutable frontend paths."
+    "Do not remove or alter any other footer content such as the Nebacrypt logo, org number, Oslo address, or caffeine.ai attribution"
   ],
   "nonGoals": [
-    "Redesigning the full ICPInfoPage layout.",
-    "Changes to other pages (LandingPage, ClientPortal, etc.).",
-    "Backend changes."
+    "Redesigning or restructuring the footer layout",
+    "Changing any header or page content outside the footer"
   ],
   "imageRequirements": {
     "required": [],

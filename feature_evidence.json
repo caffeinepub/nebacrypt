@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-on-the-icpinfopage-frontend-src-pages-icpinfopage-tsx-change-the-heading-that-currently-reads-teknologiinformasjon-to-v-r-teknologi",
-      "featureTitle": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
+      "featureId": "feature-in-the-footer-component-remove-the-nebadon-encryption-as-company-name-text-that-appears-as-a-standalone-element-in-the-footer",
+      "featureTitle": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
       "files": [
-        "frontend/src/pages/ICPInfoPage.tsx"
+        "frontend/src/components/Footer.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -24,10 +24,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-on-the-icpinfopage-change-all-text-in-the-top-hero-section-to-black-so-it-is-clearly-readable-against-the-background",
-      "featureTitle": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+      "featureId": "feature-in-the-footer-component-update-the-copyright-line-so-that-nebadon-encryption-is-removed-from-it-leaving-only-copyright-2026-and-any-remaining-attribution-such-as-caffeine-ai",
+      "featureTitle": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
       "files": [
-        "frontend/src/pages/ICPInfoPage.tsx"
+        "frontend/src/components/Footer.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -42,28 +42,6 @@
       ],
       "testIds": [
         "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-on-the-icpinfopage-increase-the-css-blur-amount-on-the-background-image-in-the-top-hero-section-to-improve-readability",
-      "featureTitle": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
-      "files": [
-        "frontend/src/pages/ICPInfoPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "email@1.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "blob-storage@4.0.0",
-        "github-export-icp-cli@1.0.0",
-        "email-raw@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

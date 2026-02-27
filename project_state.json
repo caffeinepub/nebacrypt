@@ -1,41 +1,30 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project involves a Norwegian-language website with a page about Internet Computer (blockchain/web3 technology). Working on text corrections and readability improvements.",
+  "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [
-    "Internet Computer page: top section has readability issues (unreadable text, insufficient background blur)"
-  ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-on-the-icpinfopage-frontend-src-pages-icpinfopage-tsx-change-the-heading-that-currently-reads-teknologiinformasjon-to-v-r-teknologi",
-      "title": "On the ICPInfoPage (frontend/src/pages/ICPInfoPage.tsx), change the heading that currently reads 'teknologiinformasjon' to 'Vår teknologi'.",
+      "id": "feature-in-the-footer-component-remove-the-nebadon-encryption-as-company-name-text-that-appears-as-a-standalone-element-in-the-footer",
+      "title": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-on-the-icpinfopage-change-all-text-in-the-top-hero-section-to-black-so-it-is-clearly-readable-against-the-background",
-      "title": "On the ICPInfoPage, change all text in the top/hero section to black so it is clearly readable against the background.",
+      "id": "feature-in-the-footer-component-update-the-copyright-line-so-that-nebadon-encryption-is-removed-from-it-leaving-only-copyright-2026-and-any-remaining-attribution-such-as-caffeine-ai",
+      "title": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
       "reqIds": [
         "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-on-the-icpinfopage-increase-the-css-blur-amount-on-the-background-image-in-the-top-hero-section-to-improve-readability",
-      "title": "On the ICPInfoPage, increase the CSS blur amount on the background image in the top/hero section to improve readability.",
-      "reqIds": [
-        "REQ-3"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [],
-  "gameProjectType": "none",
-  "projectName": "Nebacrypt",
+  "projectName": "Remove company name from footer copyright and company label",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
