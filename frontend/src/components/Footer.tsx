@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar - Mobile Stacked (moved above address) */}
+        {/* Bottom Bar */}
         <div className="pb-4 sm:pb-6 border-b border-border/40 mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
             <div className="text-center sm:text-left">
@@ -39,10 +39,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Contact Info - Mobile Optimized */}
-        <div className="text-center space-y-2 sm:space-y-3">
-          <div className="text-xs sm:text-sm text-muted-foreground">Org nr 935 095 123</div>
-          <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
+        {/* Contact Info - Org nr left, Address right */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
+          <div className="text-center sm:text-left">
+            Org nr 935 095 123
+          </div>
+          <div className="text-center sm:text-right space-y-1">
             <div>Karl Johans gate 25</div>
             <div>0159 OSLO</div>
           </div>

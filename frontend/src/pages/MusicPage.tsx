@@ -11,6 +11,21 @@ export const SUNO_PROFILE_URL = 'https://suno.com/@nebacrypt';
 
 export const tracks = [
   {
+    title: 'Unbreakable Signal',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/owSmEgAmBXYqVuZt',
+  },
+  {
+    title: 'Tasten - din venn eller fiende?',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/TiV9L1eSJsCOdCCs',
+  },
+  {
+    title: 'Caffeine A.I. Code Rush',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/BldXyW2xM1nW1C4U',
+  },
+  {
     title: 'Binær Hjerte',
     artist: 'Synthetic Agondonters',
     sunoUrl: 'https://suno.com/s/toWsTQiSpnQ9GN6Q',

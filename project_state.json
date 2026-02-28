@@ -1,30 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Artist music page project. Adding new songs to the top of the music page list as clickable Suno links.",
+  "architectural_notes": [
+    "Music page is an artist page with a list of songs as clickable links to Suno"
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-in-the-footer-component-remove-the-nebadon-encryption-as-company-name-text-that-appears-as-a-standalone-element-in-the-footer",
-      "title": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
+      "id": "feature-add-three-new-songs-to-the-top-of-the-track-list-on-musicpage-tsx-above-all-existing-entries-as-clickable-suno-links-in-the-same-style-as-the-existing-tracks-unbreakable-signal-https-suno-com-s-owsmegambxyqvuzt-tasten-din-venn-eller-fiende-https-suno-com-s-tiv9l1esjscodccs-caffeine-a-i-code-rush-https-suno-com-s-bldxyw2xm1nw1c4u",
+      "title": "Add three new songs to the top of the track list on MusicPage.tsx, above all existing entries, as clickable Suno links in the same style as the existing tracks: 'Unbreakable Signal' (https://suno.com/s/owSmEgAmBXYqVuZt), 'Tasten - din venn eller fiende?' (https://suno.com/s/TiV9L1eSJsCOdCCs), 'Caffeine A.I. Code Rush' (https://suno.com/s/BldXyW2xM1nW1C4U).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-in-the-footer-component-update-the-copyright-line-so-that-nebadon-encryption-is-removed-from-it-leaving-only-copyright-2026-and-any-remaining-attribution-such-as-caffeine-ai",
-      "title": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Remove company name from footer copyright and company label",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add three new songs to the top of the music page: 'Unbreakable Signal', 'Tasten - din venn eller fiende?', 'Caffeine A.I. Code Rush' as clickable Suno links in existing style",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Nebacrypt",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-footer-component-remove-the-nebadon-encryption-as-company-name-text-that-appears-as-a-standalone-element-in-the-footer",
-      "featureTitle": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
+      "featureId": "feature-add-three-new-songs-to-the-top-of-the-track-list-on-musicpage-tsx-above-all-existing-entries-as-clickable-suno-links-in-the-same-style-as-the-existing-tracks-unbreakable-signal-https-suno-com-s-owsmegambxyqvuzt-tasten-din-venn-eller-fiende-https-suno-com-s-tiv9l1esjscodccs-caffeine-a-i-code-rush-https-suno-com-s-bldxyw2xm1nw1c4u",
+      "featureTitle": "Add three new songs to the top of the track list on MusicPage.tsx, above all existing entries, as clickable Suno links in the same style as the existing tracks: 'Unbreakable Signal' (https://suno.com/s/owSmEgAmBXYqVuZt), 'Tasten - din venn eller fiende?' (https://suno.com/s/TiV9L1eSJsCOdCCs), 'Caffeine A.I. Code Rush' (https://suno.com/s/BldXyW2xM1nW1C4U).",
       "files": [
-        "frontend/src/components/Footer.tsx"
+        "frontend/src/pages/MusicPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -20,28 +20,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-in-the-footer-component-update-the-copyright-line-so-that-nebadon-encryption-is-removed-from-it-leaving-only-copyright-2026-and-any-remaining-attribution-such-as-caffeine-ai",
-      "featureTitle": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
-      "files": [
-        "frontend/src/components/Footer.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "email@1.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "blob-storage@4.0.0",
-        "github-export-icp-cli@1.0.0",
-        "email-raw@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

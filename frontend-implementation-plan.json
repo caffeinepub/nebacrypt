@@ -1,36 +1,24 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove company name from footer copyright and company label",
+  "title": "Add three new songs to the top of the music page",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove the standalone 'Nebadon Encryption AS' company name text from the Footer component while preserving all other footer content",
+      "summary": "Add three new songs to the top of the track list on MusicPage.tsx as clickable Suno links in the same style as existing tracks",
       "acceptanceCriteria": [
-        "The text 'Nebadon Encryption AS' no longer appears anywhere in the footer",
-        "The rest of the footer layout (logo, copyright bar, contact details, address) remains intact"
+        "The three new songs appear at the very top of the track list on the music page, before any existing songs.",
+        "Each new song is rendered as a clickable link using the MusicTrackCard component (or equivalent existing style).",
+        "Clicking 'Unbreakable Signal' navigates to https://suno.com/s/owSmEgAmBXYqVuZt.",
+        "Clicking 'Tasten - din venn eller fiende?' navigates to https://suno.com/s/TiV9L1eSJsCOdCCs.",
+        "Clicking 'Caffeine A.I. Code Rush' navigates to https://suno.com/s/BldXyW2xM1nW1C4U.",
+        "The new entries visually match the style of the existing song entries on the page."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Footer.tsx",
+          "path": "frontend/src/pages/MusicPage.tsx",
           "operation": "modify",
-          "description": "Remove the standalone 'Nebadon Encryption AS' text element from the footer component. Locate and delete the text node or paragraph that displays 'Nebadon Encryption AS' as a separate element in the footer layout, ensuring the logo, copyright line, org number, and Oslo address remain unchanged."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Update the copyright line to remove 'Nebadon Encryption' while keeping the year 2026 and caffeine.ai attribution",
-      "acceptanceCriteria": [
-        "The copyright line no longer contains the text 'Nebadon Encryption'",
-        "The year '2026' and any caffeine.ai attribution remain on the copyright line",
-        "No other footer content is changed"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Modify the copyright text line to remove 'Nebadon Encryption' from it. Update the copyright string to show only 'Copyright 2026' and the caffeine.ai attribution (if present), removing any reference to 'Nebadon Encryption' from the copyright line itself."
+          "description": "Add three new MusicTrackCard components at the top of the track list, before all existing tracks. The new tracks are: 'Unbreakable Signal' linking to https://suno.com/s/owSmEgAmBXYqVuZt, 'Tasten - din venn eller fiende?' linking to https://suno.com/s/TiV9L1eSJsCOdCCs, and 'Caffeine A.I. Code Rush' linking to https://suno.com/s/BldXyW2xM1nW1C4U. Use the MusicTrackCard component with the same structure and styling as the existing track entries on the page. Ensure the new tracks appear above all current tracks in the rendered list."
         }
       ]
     }

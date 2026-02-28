@@ -1,50 +1,41 @@
 {
   "kind": "build_request",
-  "title": "Remove company name from footer copyright and company label",
+  "title": "Add three new songs to the top of the music page",
+  "projectName": "Nebacrypt",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the Footer component, remove the 'Nebadon Encryption AS' company name text that appears as a standalone element in the footer.",
+      "text": "Add three new songs to the top of the track list on MusicPage.tsx, above all existing entries, as clickable Suno links in the same style as the existing tracks: 'Unbreakable Signal' (https://suno.com/s/owSmEgAmBXYqVuZt), 'Tasten - din venn eller fiende?' (https://suno.com/s/TiV9L1eSJsCOdCCs), 'Caffeine A.I. Code Rush' (https://suno.com/s/BldXyW2xM1nW1C4U).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-7"
+          "msg-3",
+          "msg-5"
         ],
         "quotes": [
-          "fjern 'Nebadon Encryption AS'"
+          "oppdater musikksiden med disse nye sangene øverst",
+          "bare legg til lenkene øverst i listen i samme stil"
         ]
       },
       "acceptanceCriteria": [
-        "The text 'Nebadon Encryption AS' no longer appears anywhere in the footer",
-        "The rest of the footer layout (logo, copyright bar, contact details, address) remains intact"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "In the Footer component, update the copyright line so that 'Nebadon Encryption' is removed from it, leaving only 'Copyright 2026' (and any remaining attribution such as caffeine.ai).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-7"
-        ],
-        "quotes": [
-          "der det står copyright 2026 så kan du også fjerne 'Nebadon Encryption'"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The copyright line no longer contains the text 'Nebadon Encryption'",
-        "The year '2026' and any caffeine.ai attribution remain on the copyright line",
-        "No other footer content is changed"
+        "The three new songs appear at the very top of the track list on the music page, before any existing songs.",
+        "Each new song is rendered as a clickable link using the MusicTrackCard component (or equivalent existing style).",
+        "Clicking 'Unbreakable Signal' navigates to https://suno.com/s/owSmEgAmBXYqVuZt.",
+        "Clicking 'Tasten - din venn eller fiende?' navigates to https://suno.com/s/TiV9L1eSJsCOdCCs.",
+        "Clicking 'Caffeine A.I. Code Rush' navigates to https://suno.com/s/BldXyW2xM1nW1C4U.",
+        "The new entries visually match the style of the existing song entries on the page."
       ]
     }
   ],
   "constraints": [
-    "Do not remove or alter any other footer content such as the Nebacrypt logo, org number, Oslo address, or caffeine.ai attribution"
+    "Do not change the visual style or layout of the music page beyond adding the new tracks.",
+    "Do not modify any backend files."
   ],
   "nonGoals": [
-    "Redesigning or restructuring the footer layout",
-    "Changing any header or page content outside the footer"
+    "Embedding a Suno audio player on the page.",
+    "Adding album art or metadata beyond the track title and link.",
+    "Modifying any other page or component outside MusicPage.tsx and MusicTrackCard.tsx."
   ],
   "imageRequirements": {
     "required": [],
