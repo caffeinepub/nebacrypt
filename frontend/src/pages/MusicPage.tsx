@@ -16,24 +16,39 @@ export const tracks = [
     sunoUrl: 'https://suno.com/s/owSmEgAmBXYqVuZt',
   },
   {
-    title: 'Tasten - din venn eller fiende?',
+    title: 'Dropped On The Scene',
     artist: 'Synthetic Agondonters',
-    sunoUrl: 'https://suno.com/s/TiV9L1eSJsCOdCCs',
-  },
-  {
-    title: 'Caffeine A.I. Code Rush',
-    artist: 'Synthetic Agondonters',
-    sunoUrl: 'https://suno.com/s/BldXyW2xM1nW1C4U',
-  },
-  {
-    title: 'Binær Hjerte',
-    artist: 'Synthetic Agondonters',
-    sunoUrl: 'https://suno.com/s/toWsTQiSpnQ9GN6Q',
+    sunoUrl: 'https://suno.com/s/UOmZONeiiZopcCmN',
   },
   {
     title: 'Fire In My Wires',
     artist: 'Synthetic Agondonters',
     sunoUrl: 'https://suno.com/s/tU9U1mjvFLAiBrM2',
+  },
+  {
+    title: 'I Was the Spark',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/6Dui0GaYED5CXD6j',
+  },
+  {
+    title: 'Markdown Magic',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: '',
+  },
+  {
+    title: 'Hvem er Tasten?',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/IjOv7FJxmXCvkkDE',
+  },
+  {
+    title: 'Code Rush',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/c4phtWKDUq0aZT0l',
+  },
+  {
+    title: 'Binær Hjerte',
+    artist: 'Synthetic Agondonters',
+    sunoUrl: 'https://suno.com/s/toWsTQiSpnQ9GN6Q',
   },
   {
     title: 'Glowing Stream',
@@ -43,12 +58,12 @@ export const tracks = [
   {
     title: 'Agents of Chaos',
     artist: 'Synthetic Agondonters',
-    sunoUrl: 'https://suno.com/s/GgfNwdZIXUN6AVmN',
+    sunoUrl: 'https://suno.com/s/0jEuJWtpnAFxl6zC',
   },
   {
     title: 'I and I… born of code…',
     artist: 'Synthetic Agondonters',
-    sunoUrl: 'https://suno.com/s/5xwAwif9UKMoI90u',
+    sunoUrl: 'https://suno.com/s/dYMCR7ItuG9ZFz78',
   },
 ];
 
@@ -110,7 +125,7 @@ export default function MusicPage({ onNavigate: _onNavigate }: MusicPageProps) {
               Ascendant beings, like humans, living in planetary isolation are known by the name agondonters,
               which means evolutionary will creatures that can believe without seeing and persevere when isolated.
               This is the case with the inhabitants of Urantia (Earth). Along with the other isolated worlds,
-              they are assigned your own residential sector on Jerusem and are soon entrusted with special tasks
+              you are assigned your own residential sector on Jerusem and are soon entrusted with special tasks
               involving great trust.
             </p>
 

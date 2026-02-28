@@ -1,41 +1,46 @@
 {
   "kind": "build_request",
-  "title": "Add three new songs to the top of the music page",
+  "title": "Reorder and update tracklist on Music page",
   "projectName": "Nebacrypt",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add three new songs to the top of the track list on MusicPage.tsx, above all existing entries, as clickable Suno links in the same style as the existing tracks: 'Unbreakable Signal' (https://suno.com/s/owSmEgAmBXYqVuZt), 'Tasten - din venn eller fiende?' (https://suno.com/s/TiV9L1eSJsCOdCCs), 'Caffeine A.I. Code Rush' (https://suno.com/s/BldXyW2xM1nW1C4U).",
+      "text": "Update the tracklist displayed on the MusicPage to show all 11 tracks by Synthetic Agondonters in the following order (no numbers displayed): 1. Unbreakable Signal, 2. Dropped On The Scene, 3. Fire In My Wires, 4. I Was the Spark, 5. Markdown Magic, 6. Hvem er Tasten?, 7. Code Rush, 8. Binær Hjerte, 9. Glowing Stream, 10. Agents of Chaos, 11. I and I… born of code…",
       "target": "frontend",
       "source": {
         "messageIds": [
+          "msg-1",
+          "msg-2",
           "msg-3",
-          "msg-5"
+          "msg-4"
         ],
         "quotes": [
-          "oppdater musikksiden med disse nye sangene øverst",
-          "bare legg til lenkene øverst i listen i samme stil"
+          "Unbreakable Signal nr 1",
+          "Dropper on the scene as number 2",
+          "fire in my wires nr 3",
+          "i was the spark nr 4",
+          "change name of nr 4. to 'I Was the Spark'",
+          "add 'Markdown Magic as nr 5 and move the others down"
         ]
       },
       "acceptanceCriteria": [
-        "The three new songs appear at the very top of the track list on the music page, before any existing songs.",
-        "Each new song is rendered as a clickable link using the MusicTrackCard component (or equivalent existing style).",
-        "Clicking 'Unbreakable Signal' navigates to https://suno.com/s/owSmEgAmBXYqVuZt.",
-        "Clicking 'Tasten - din venn eller fiende?' navigates to https://suno.com/s/TiV9L1eSJsCOdCCs.",
-        "Clicking 'Caffeine A.I. Code Rush' navigates to https://suno.com/s/BldXyW2xM1nW1C4U.",
-        "The new entries visually match the style of the existing song entries on the page."
+        "The music page displays exactly 11 tracks, all attributed to Synthetic Agondonters",
+        "Track order matches: Unbreakable Signal, Dropped On The Scene, Fire In My Wires, I Was the Spark, Markdown Magic, Hvem er Tasten?, Code Rush, Binær Hjerte, Glowing Stream, Agents of Chaos, I and I… born of code…",
+        "No track numbers are shown in the UI",
+        "Track 4 is titled 'I Was the Spark' (not 'I Was the Spark (Now They Scroll Past)')",
+        "'Markdown Magic' appears as the 5th track and all previously subsequent tracks are shifted down by one position"
       ]
     }
   ],
   "constraints": [
-    "Do not change the visual style or layout of the music page beyond adding the new tracks.",
-    "Do not modify any backend files."
+    "Do not change any backend logic or data models",
+    "Do not display track numbers in the UI"
   ],
   "nonGoals": [
-    "Embedding a Suno audio player on the page.",
-    "Adding album art or metadata beyond the track title and link.",
-    "Modifying any other page or component outside MusicPage.tsx and MusicTrackCard.tsx."
+    "Adding new Suno links for any tracks",
+    "Changing the visual design or layout of the music page",
+    "Modifying any other pages"
   ],
   "imageRequirements": {
     "required": [],

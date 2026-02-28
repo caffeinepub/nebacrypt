@@ -1,32 +1,25 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Artist music page project. Adding new songs to the top of the music page list as clickable Suno links.",
+  "summary": "Music website for Synthetic Agondonters with a music page displaying a custom-ordered tracklist of 11 songs. Track order: 1. Unbreakable Signal, 2. Dropped On The Scene, 3. Fire In My Wires, 4. I Was the Spark, 5. Markdown Magic, 6. Hvem er Tasten?, 7. Code Rush, 8. Binær Hjerte, 9. Glowing Stream, 10. Agents of Chaos, 11. I and I… born of code…",
   "architectural_notes": [
-    "Music page is an artist page with a list of songs as clickable links to Suno"
+    "Music page displays 11 tracks by Synthetic Agondonters in a fixed custom order; track numbers are not displayed visually."
   ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-add-three-new-songs-to-the-top-of-the-track-list-on-musicpage-tsx-above-all-existing-entries-as-clickable-suno-links-in-the-same-style-as-the-existing-tracks-unbreakable-signal-https-suno-com-s-owsmegambxyqvuzt-tasten-din-venn-eller-fiende-https-suno-com-s-tiv9l1esjscodccs-caffeine-a-i-code-rush-https-suno-com-s-bldxyw2xm1nw1c4u",
-      "title": "Add three new songs to the top of the track list on MusicPage.tsx, above all existing entries, as clickable Suno links in the same style as the existing tracks: 'Unbreakable Signal' (https://suno.com/s/owSmEgAmBXYqVuZt), 'Tasten - din venn eller fiende?' (https://suno.com/s/TiV9L1eSJsCOdCCs), 'Caffeine A.I. Code Rush' (https://suno.com/s/BldXyW2xM1nW1C4U).",
+      "id": "feature-update-the-tracklist-displayed-on-the-musicpage-to-show-all-11-tracks-by-synthetic-agondonters-in-the-following-order-no-numbers-displayed-1-unbreakable-signal-2-dropped-on-the-scene-3-fire-in-my-wires-4-i-was-the-spark-5-markdown-magic-6-hvem-er-tasten-7-code-rush-8-bin-r-hjerte-9-glowing-stream-10-agents-of-chaos-11-i-and-i-born-of-code",
+      "title": "Update the tracklist displayed on the MusicPage to show all 11 tracks by Synthetic Agondonters in the following order (no numbers displayed): 1. Unbreakable Signal, 2. Dropped On The Scene, 3. Fire In My Wires, 4. I Was the Spark, 5. Markdown Magic, 6. Hvem er Tasten?, 7. Code Rush, 8. Binær Hjerte, 9. Glowing Stream, 10. Agents of Chaos, 11. I and I… born of code…",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Add three new songs to the top of the music page: 'Unbreakable Signal', 'Tasten - din venn eller fiende?', 'Caffeine A.I. Code Rush' as clickable Suno links in existing style",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
+  "new_feature_requests": [],
   "gameProjectType": "none",
-  "projectName": "Nebacrypt",
+  "projectName": "Synthetic Agondonters",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

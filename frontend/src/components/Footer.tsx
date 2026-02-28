@@ -39,6 +39,18 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* nencrypt.com - centered */}
+        <div className="mb-6 sm:mb-8 flex justify-center">
+          <a
+            href="https://nencrypt.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground hover:underline transition-colors font-medium"
+          >
+            nencrypt.com
+          </a>
+        </div>
+
         {/* Contact Info - Org nr left, Address right */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
           <div className="text-center sm:text-left">
